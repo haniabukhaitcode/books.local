@@ -18,7 +18,7 @@ $book = new Book(); ?>
 <script>
     $(document).ready(function() {
 
-        $('.btn').click(function() {
+        $('#btn').click(function() {
             $.get("test.php", function(data, status) {
                 $("#test").html(data);
                 alert(status);
@@ -32,7 +32,7 @@ $book = new Book(); ?>
 </div>
 <table class="table table-dark">
     <thead>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loadModal">
+        <button type="button" class="btn btn-success" id="btn" data-toggle="modal" data-target="#loadModal">
             Create Item
         </button>
         <span id="test"></span>
