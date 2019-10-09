@@ -10,7 +10,6 @@ if ($_POST) {
     $tagBook = new TagsToBooks();
     $result = $tagBook->fetchTagBooks($id);
 }
-
 ?>
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
@@ -41,7 +40,7 @@ if ($_POST) {
             <div class="col-3 ml-3">
                 <?= $row->tag ?>
                 <div class="card">
-                    <?= '<img class="card-img-top" src="/static/' . $row->book_image . '" alt="no_image";"> </img>'; ?>
+                    <?= '<img class="card-img-top" src="/PHP-OOP-CRUD/static/' . $row->book_image . '" alt="no_image";"> </img>'; ?>
                     <div class="card-body ">
                         <p class="card-text">Book Title: <?= $row->title; ?></p>
                     </div>

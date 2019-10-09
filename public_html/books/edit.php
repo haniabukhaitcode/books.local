@@ -6,13 +6,12 @@ require '../models/Book.php';
 
 if ($_POST) {
 
-    $book = new Book();
+    $book = new Book;
     $book->updateBook(
 
         $_GET['id'],
 
         [
-            "id" => $_POST["id"],
             "title" => $_POST["title"],
             "author_id" => $_POST["author_id"],
             "tags" => $_POST["tags"],
@@ -27,6 +26,7 @@ if ($_POST) {
 
 <?php require_once '../navbar.html';
 require_once '../header.html'; ?>
+
 <div class="jumbotron">
     <h4 class="mb-4">Add Books</h4>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id={$id}"); ?>" method="post" enctype="multipart/form-data">
@@ -79,8 +79,6 @@ require_once '../header.html'; ?>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
     </form>
-
-
 
 
     <?php require_once '../footer.html'; ?>
