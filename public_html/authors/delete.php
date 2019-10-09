@@ -1,6 +1,6 @@
 <?php
 require_once "../models/Author.php";
-require_once '../navbar.html';
+
 require_once '../header.html';
 
 

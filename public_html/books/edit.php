@@ -24,7 +24,7 @@ if ($_POST) {
 }
 ?>
 
-<?php require_once '../navbar.html';
+<?php
 require_once '../header.html'; ?>
 
 <div class="jumbotron">

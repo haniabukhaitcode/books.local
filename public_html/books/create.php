@@ -15,7 +15,7 @@ if ($_POST) {
 }
 ?>
 
-<?php require_once '../navbar.html';
+<?php
 require_once '../header.html'; ?>
 <div class="jumbotron">
     <h4 class="mb-4">Add Books</h4>
