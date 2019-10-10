@@ -1,9 +1,9 @@
 <!-- Add New -->
 <div class="modal fade" id="addnew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:#32383e">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="button" class="close" style="color: white" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <center>
                     <h4 class="modal-title" id="myModalLabel">Add New Author</h4>
                 </center>
@@ -35,9 +35,9 @@
 <!-- Edit -->
 <div class="modal fade" id="editID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:#32383e">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="button" class="close" style="color: white" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <center>
                     <h4 class="modal-title" id="myModalLabel">Edit Author</h4>
                 </center>
@@ -71,9 +71,9 @@
 <!-- Delete -->
 <div class="modal fade" id="deleteID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:#32383e">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="button" class="close" style="color: white" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <center>
                     <h4 class="modal-title" id="myModalLabel">Delete Author</h4>
                 </center>
