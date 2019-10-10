@@ -1,4 +1,4 @@
-<?php
+<?php require '../navbar.html';
 require '../header.html';
 require '../models/Book.php';
 $book = new Book(); ?>

@@ -66,7 +66,6 @@ class BaseModel
             $query = "SELECT " . implode(',', $this->fields) . " FROM " . $this->table;
         }
         $stmt = $this->conn->query($query)->fetchAll(PDO::FETCH_OBJ);
-
         return $stmt;
     }
 

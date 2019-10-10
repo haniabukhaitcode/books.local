@@ -20,7 +20,7 @@ if (isset($_POST['save_tag'])) {
 }
 ?>
 
-<?php
+<?php require_once '../navbar.html';
 require_once '../header.html'; ?>
 
 <div class="jumbotron">
