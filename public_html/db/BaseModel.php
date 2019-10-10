@@ -104,9 +104,9 @@ class BaseModel
         $stmt = $this->conn->prepare($query);
         $stmt->bindValue(":id", $wstmt);
         $stmt->execute();
-
-        if ($stmt) {
-            header("Location: index.php");
-        }
+        return $stmt;
+        // if ($stmt) {
+        //     header("Location: index.php");
+        // }
     }
 }

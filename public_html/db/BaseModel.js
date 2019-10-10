@@ -40,6 +40,8 @@ $(document).ready(function () {
 	$('#editButton').click(function () {
 		var id = $(this).val();
 		var editForm = $('#editForm').serialize();
+		console.log(id);
+		console.log(id);
 		$.ajax({
 			type: 'POST',
 			url: '../authors/edit.php',
@@ -58,6 +60,8 @@ $(document).ready(function () {
 	$(document).on('click', '.delete', function () {
 		var id = $(this).data('id');
 		var author = $('#author' + id).text();
+		console.log(id);
+		console.log(author);
 		$('#deleteID').modal('show');
 		$('#deleteAuthor').text(author);
 		$('#deleteButton').val(id);

@@ -75,19 +75,20 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <center>
-                    <h4 class="modal-title" id="myModalLabel">Delete Member</h4>
+                    <h4 class="modal-title" id="myModalLabel">Delete Author</h4>
                 </center>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <h5>
-                        <center>Author: <strong><span id="deleteAuthor"></span></strong></center>
+                        <center>Author: <strong><span name="deleteAuthor" id="deleteAuthor"></span></strong></center>
                     </h5>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default edit" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                <button type="button" class="btn btn-danger delete"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+
+                <button type="button" id="deleteButton" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
             </div>
 
         </div>
