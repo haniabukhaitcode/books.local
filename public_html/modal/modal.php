@@ -3,10 +3,8 @@
     <div class="modal-dialog">
         <div class="modal-content" style="background-color:#32383e">
             <div class="modal-header">
-
                 <h3 style="margin-left: auto; color:white;" class="modal-title" id="myModalLabel">Add New Author</h3>
                 <button type="button" class="close" style="color: white" data-dismiss="modal" aria-hidden="true">&times;</button>
-
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -37,10 +35,8 @@
     <div class="modal-dialog">
         <div class="modal-content" style="background-color:#32383e">
             <div class="modal-header">
+                <h3 style="margin-left: auto; color:white;" class="modal-title" id="myModalLabel">Edit Author</h3>
                 <button type="button" class="close" style="color: white" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <center>
-                    <h4 class="modal-title" id="myModalLabel">Edit Author</h4>
-                </center>
             </div>
 
             <div class="modal-body">
@@ -48,7 +44,7 @@
                     <form id="editForm">
                         <div class="row">
                             <div class="col-md-2">
-                                <label class="control-label" style="position:relative; top:7px;">Author:</label>
+                                <label class="control-label" style="position:relative; color:white; top:7px;">Author:</label>
                             </div>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" name="editAuthor" id="editAuthor">
@@ -60,8 +56,8 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                <button type="button" id="editButton" class="btn btn-warning"><span class="glyphicon glyphicon-check"></span> Update</a>
+                <button type="button" style="color:white;" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                <button type="button" id="editButton" style="color:white;" class=" btn btn-warning"><span class="glyphicon glyphicon-check"></span> Update</a>
             </div>
 
         </div>
@@ -73,22 +69,22 @@
     <div class="modal-dialog">
         <div class="modal-content" style="background-color:#32383e">
             <div class="modal-header">
+                <h3 style="margin-left: auto; color:white;" class="modal-title" id="myModalLabel">Delete Author</h3>
                 <button type="button" class="close" style="color: white" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <center>
-                    <h4 class="modal-title" id="myModalLabel">Delete Author</h4>
-                </center>
+
+
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <h5>
-                        <center>Author: <strong><span name="deleteAuthor" id="deleteAuthor"></span></strong></center>
+                        <center style="color:white;">Author: <strong><span style="color:white;" name="deleteAuthor" id="deleteAuthor"></span></strong></center>
                     </h5>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                <button type="button" style="color:white;" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 
-                <button type="button" id="deleteButton" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                <button type="button" id="deleteButton" style="color: white" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
             </div>
 
         </div>
