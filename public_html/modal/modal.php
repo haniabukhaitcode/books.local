@@ -3,17 +3,17 @@
     <div class="modal-dialog">
         <div class="modal-content" style="background-color:#32383e">
             <div class="modal-header">
+
+                <h3 style="margin-left: auto; color:white;" class="modal-title" id="myModalLabel">Add New Author</h3>
                 <button type="button" class="close" style="color: white" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <center>
-                    <h4 class="modal-title" id="myModalLabel">Add New Author</h4>
-                </center>
+
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form id="addForm">
                         <div class="row">
                             <div class="col-md-2">
-                                <label class="control-label" style="position:relative; top:7px;">Author:</label>
+                                <label class="control-label" style="position:relative; color:white; top:7px;">Author:</label>
                             </div>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" name="author" id="author">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                <button type="button" style="color:white;" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
                 <button type="button" id="addbutton" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</a>
             </div>
 

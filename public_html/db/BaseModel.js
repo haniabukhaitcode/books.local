@@ -1,12 +1,12 @@
-$(document).ready(function () {
+$(document).ready(function() {
 	showTable();
 	//add
-	$('#add').click(function () {
+	$('#add').click(function() {
 		$('#addnew').modal('show');
 		$('#addForm')[0].reset();
 	});
 
-	$('#addbutton').click(function () {
+	$('#addbutton').click(function() {
 		var author = $('#author').val();
 
 		if (author !== '') {
@@ -15,7 +15,7 @@ $(document).ready(function () {
 				type: 'POST',
 				url: '../authors/create.php',
 				data: addForm,
-				success: function () {
+				success: function() {
 					$('#addnew').modal('hide');
 					$('#addForm')[0].reset();
 					showTable();
@@ -29,24 +29,25 @@ $(document).ready(function () {
 	});
 	//
 	//edit
-	$(document).on('click', '.edit', function () {
+	$(document).on('click', '.edit', function() {
 		var id = $(this).data('id');
 		var author = $('#author' + id).text();
+		console.log(id);
 		$('#editID').modal('show');
 		$('#editAuthor').val(author);
 		$('#editButton').val(id);
 	});
 
-	$('#editButton').click(function () {
+	$('#editButton').click(function() {
 		var id = $(this).val();
 		var editForm = $('#editForm').serialize();
-		console.log(id);
+
 		console.log(id);
 		$.ajax({
 			type: 'POST',
 			url: '../authors/edit.php',
 			data: editForm + '&id=' + id,
-			success: function () {
+			success: function() {
 				$('#editID').modal('hide');
 				$('#editForm')[0].reset();
 				showTable();
@@ -57,17 +58,17 @@ $(document).ready(function () {
 	});
 	//
 	//delete
-	$(document).on('click', '.delete', function () {
+	$(document).on('click', '.delete', function() {
 		var id = $(this).data('id');
 		var author = $('#author' + id).text();
 		console.log(id);
-		console.log(author);
+
 		$('#deleteID').modal('show');
 		$('#deleteAuthor').text(author);
 		$('#deleteButton').val(id);
 	});
 
-	$('#deleteButton').click(function () {
+	$('#deleteButton').click(function() {
 		var id = $(this).val();
 		$.ajax({
 			type: 'POST',
@@ -75,7 +76,7 @@ $(document).ready(function () {
 			data: {
 				id: id,
 			},
-			success: function () {
+			success: function() {
 				$('#deleteID').modal('hide');
 				showTable();
 				$('#alert').slideDown();
@@ -91,7 +92,7 @@ function showTable() {
 		data: {
 			handler: 1,
 		},
-		success: function (data) {
+		success: function(data) {
 			$('#table').html(data);
 		},
 	});

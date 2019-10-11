@@ -14,7 +14,7 @@ if (isset($_POST['handler'])) {
 
                 require_once '../models/Author.php';
                 $author = new Author;
-                foreach ($author->fetchAll() as $row) : print_r($row->id) ?>
+                foreach ($author->fetchAll() as $row) :  ?>
                 <tr>
                     <th scope="row"><?= $row->id; ?></th>
 
