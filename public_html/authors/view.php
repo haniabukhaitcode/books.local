@@ -4,6 +4,7 @@
         <th>Author</th>
         <th>Actions</th>
     </tr>
+
     <?php
     require_once '../models/Author.php';
     $author = new Author;
@@ -17,6 +18,7 @@
             </td>
         </tr>
     <?php endforeach; ?>
+
 </table>
 
 <script type="text/javascript">

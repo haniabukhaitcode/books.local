@@ -13,6 +13,7 @@ if (isset($_POST['handler'])) : ?>
                 foreach ($author->fetchAll() as $row) :  ?>
                 <tr>
                     <th scope="row"><?= $row->id; ?></th>
+
                     <td><span id="author<?= $row->id; ?>"><?= $row->author; ?></span></td>
                     <td>
                         <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>"> Edit</a>&nbsp;

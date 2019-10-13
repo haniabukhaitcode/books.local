@@ -1,21 +1,24 @@
-$(document).ready(function() {
-	showTable();
+$(document).ready(function () {
+	alert('bism');
 	//add
-	$('#add').click(function() {
+
+	$('#add').click(function () {
+		alert('bism');
 		$('#addnew').modal('show');
+		alert('bism');
+		console.log('bism');
 		$('#addForm')[0].reset();
 	});
 
-	$('#addbutton').click(function() {
+	$('#addbutton').click(function () {
 		var author = $('#author').val();
-
 		if (author !== '') {
 			var addForm = $('#addForm').serialize();
 			$.ajax({
 				type: 'POST',
 				url: '../authors/create.php',
 				data: addForm,
-				success: function() {
+				success: function () {
 					$('#addnew').modal('hide');
 					$('#addForm')[0].reset();
 					showTable();
@@ -27,27 +30,24 @@ $(document).ready(function() {
 			alert('Please input both Fields');
 		}
 	});
-	//
+
 	//edit
-	$(document).on('click', '.edit', function() {
+	$(document).on('click', '.edit', function () {
 		var id = $(this).data('id');
 		var author = $('#author' + id).text();
-		console.log(id);
 		$('#editID').modal('show');
 		$('#editAuthor').val(author);
 		$('#editButton').val(id);
 	});
 
-	$('#editButton').click(function() {
+	$('#editButton').click(function () {
 		var id = $(this).val();
 		var editForm = $('#editForm').serialize();
-
-		console.log(id);
 		$.ajax({
 			type: 'POST',
 			url: '../authors/edit.php',
 			data: editForm + '&id=' + id,
-			success: function() {
+			success: function () {
 				$('#editID').modal('hide');
 				$('#editForm')[0].reset();
 				showTable();
@@ -58,17 +58,15 @@ $(document).ready(function() {
 	});
 	//
 	//delete
-	$(document).on('click', '.delete', function() {
+	$(document).on('click', '.delete', function () {
 		var id = $(this).data('id');
 		var author = $('#author' + id).text();
-		console.log(id);
-
 		$('#deleteID').modal('show');
 		$('#deleteAuthor').text(author);
 		$('#deleteButton').val(id);
 	});
 
-	$('#deleteButton').click(function() {
+	$('#deleteButton').click(function () {
 		var id = $(this).val();
 		$.ajax({
 			type: 'POST',
@@ -76,8 +74,9 @@ $(document).ready(function() {
 			data: {
 				id: id,
 			},
-			success: function() {
+			success: function () {
 				$('#deleteID').modal('hide');
+				alert(location);
 				showTable();
 				$('#alert').slideDown();
 				$('#alerttext').text('Member Deleted Successfully');
@@ -85,14 +84,17 @@ $(document).ready(function() {
 		});
 	});
 });
+
 function showTable() {
+
 	$.ajax({
 		type: 'POST',
 		url: 'handler.php',
 		data: {
 			handler: 1,
 		},
-		success: function(data) {
+		success: function (data) {
+			alert(data);
 			$('#table').html(data);
 		},
 	});
