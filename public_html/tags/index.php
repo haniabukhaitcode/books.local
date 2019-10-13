@@ -34,9 +34,10 @@ require "../navbar.html";
                             $tag = new Tag;
                             foreach ($tag->fetchAll() as $row) :  ?>
                                 <tr>
+
                                     <th scope="row"><?= $row->id; ?></th>
 
-                                    <td><span id="tag<?= $row->id; ?>"><?= $row->tag; ?></span></td>
+                                    <td><span id="rowName<?= $row->id; ?>"><?= $row->tag; ?></span></td>
 
                                     <td>
                                         <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>">Edit</a>&nbsp;

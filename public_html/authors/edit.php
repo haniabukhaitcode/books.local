@@ -1,13 +1,13 @@
 <?php
 
 require_once "../models/Author.php";
-if (isset($_POST['editAuthor'])) {
+if (isset($_POST['rowName'])) {
     $author = new Author;
 
     $author->update(
 
         [
-            'author' => $_POST['editAuthor']
+            'author' => $_POST['rowName']
         ],
 
         [

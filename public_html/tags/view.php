@@ -11,7 +11,7 @@
     foreach ($tag->fetchAll() as $row) :  ?>
         <tr>
             <td scope="row"><?= $row->id; ?></td>
-            <td><span id="tag<?= $row->id; ?>"><?= $row->tag; ?></span></td>
+            <td><span id="rowName<?= $row->id; ?>"><?= $row->tag; ?></span></td>
             <td>
                 <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" id="<?= $row->id; ?>">Edit</a>&nbsp;
                 <a style="cursor:pointer;" class="btn btn-sm btn-danger delete" id="<?= $row->id; ?>">Delete</a>

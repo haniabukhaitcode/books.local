@@ -39,7 +39,7 @@ require "../navbar.html";
                                 <tr>
                                     <th scope="row"><?= $row->id; ?></th>
 
-                                    <td><span id="author<?= $row->id; ?>"><?= $row->author; ?></span></td>
+                                    <td><span id="rowName<?= $row->id; ?>"><?= $row->author; ?></span></td>
 
                                     <td>
                                         <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>"> Edit</a>&nbsp;
@@ -50,10 +50,6 @@ require "../navbar.html";
                         </tbody>
                     </table>
                 </div>
-
-
-
-
                 <div id="alert" class="alert alert-success">
                     <center><span id="alerttext"></span></center>
                 </div>

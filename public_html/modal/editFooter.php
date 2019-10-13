@@ -1,6 +1,6 @@
 </div>
 <div class="col-md-10">
-    <input type="text" class="form-control" name="editAuthor" id="editAuthor">
+    <input type="text" class="form-control" name="editName" id="editName">
 </div>
 </div>
 </form>
