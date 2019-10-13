@@ -1,1 +1,0 @@
-https://www.sourcecodester.com/php/11720/php-oop-crud-operation-using-ajaxjquery.html
