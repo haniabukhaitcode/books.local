@@ -46,8 +46,8 @@
                 id: id
             },
             success: function(data) {
-                $("#editID").html(data);
-                $('#editID').show();
+                $("#edit").html(data);
+                $('#edit').show();
             }
         });
     });

@@ -1,3 +1,4 @@
+//edit
 $(document).ready(function() {
 	$.get('view.php', function(data) {
 		$('#table_content').html(data);
