@@ -1,5 +1,6 @@
 <?php
 if (isset($_POST['handler'])) : ?>
+    <h1>From Ajax</h1>
     <table class="table table-dark">
         <thead>
             <th>ID</th>

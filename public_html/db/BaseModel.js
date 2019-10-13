@@ -1,12 +1,10 @@
 $(document).ready(function () {
-	alert('bism');
-	//add
 
 	$('#add').click(function () {
-		alert('bism');
+
 		$('#addnew').modal('show');
-		alert('bism');
-		console.log('bism');
+
+
 		$('#addForm')[0].reset();
 	});
 
@@ -76,7 +74,7 @@ $(document).ready(function () {
 			},
 			success: function () {
 				$('#deleteID').modal('hide');
-				alert(location);
+
 				showTable();
 				$('#alert').slideDown();
 				$('#alerttext').text('Member Deleted Successfully');
@@ -86,7 +84,6 @@ $(document).ready(function () {
 });
 
 function showTable() {
-
 	$.ajax({
 		type: 'POST',
 		url: 'handler.php',
@@ -94,7 +91,7 @@ function showTable() {
 			handler: 1,
 		},
 		success: function (data) {
-			alert(data);
+
 			$('#table').html(data);
 		},
 	});
