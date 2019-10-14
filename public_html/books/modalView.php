@@ -100,9 +100,9 @@ $tag = new Tag();
 
 <?php require "../modal/deleteHeader.php"  ?>
 <center>
-    <h4 style="color:white;">Title: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></h4>
-    <h4 style="color:white;">Author: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></h4>
-    <h4 style="color:white;">Tag: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></h4>
-    <h4 style="color:white;">Image: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></h4>
+    <h4 style="color:white;">Title: <strong><span style="color:white;" name="deleteTitle" id="deleteTitle"></span></strong></h4>
+    <h4 style="color:white;">Author: <strong><span style="color:white;" name="deleteAuthor" id="deleteAuthor"></span></strong></h4>
+    <h4 style="color:white;">Tag: <strong><span style="color:white;" name="deleteTagName" id="deleteTagName"></span></strong></h4>
+    <h4 style="color:white;">Image: <strong><span style="color:white;" name="deleteBookImage" id="deleteBookImage"></span></strong></h4>
 </center>
 <?php require "../modal/deleteFooter.php"  ?>

@@ -5,12 +5,13 @@ $(document).ready(function () {
 	});
 
 	$('#addbutton').click(function () {
-		var rowName = $('#rowName').val() || "";
-		//inputTitle
-		//inputName
-		//inputTag
-		//book_image
-		if (!Array.isArray(rowName)) {
+		var rowName = $('#rowName').val();
+		var rowTitle = $('#rowTitle').val();
+		var rowAuth = $('#rowAuth').val();
+		var rowTag = $('#rowTag').val();
+		var rowImage = $('#rowImage').val();
+
+		if (rowName && rowTitle && rowAuth && rowTag && rowImage !== "") {
 			var addForm = $('#addForm').serialize();
 			var myLocation = location['href'];
 			var index = myLocation.lastIndexOf('/');
@@ -74,8 +75,18 @@ $(document).ready(function () {
 	$(document).on('click', '.delete', function () {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
+		var rowTitle = $('#rowTitle' + id).val();
+		var rowAuth = $('#rowAuth' + id).val();
+		var rowTag = $('#rowTag' + id).val();
+		var rowImage = $('#rowImage' + id).val();
+
 		$('#deleteID').modal('show');
 		$('#deleteName').text(rowName);
+
+		$('#deleteTitle').text(rowTitle);
+		$('#deleteAuthor').text(rowAuth);
+		$('#deleteTagName').text(rowTag);
+		$('#deleteBookImage').text(rowImage);
 		$('#deleteButton').val(id);
 	});
 
