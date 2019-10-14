@@ -1,9 +1,7 @@
 <?php
 require_once "../models/Book.php";
 
-
-if (isset($_GET['del'])) {
-    $id = $_GET['del'];
+if (isset($_POST['id'])) {
     $book = new Book;
-    $book->delete(array("id" => $id));
+    $book->delete(['id' => $_POST['id']]);
 }

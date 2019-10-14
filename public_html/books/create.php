@@ -1,5 +1,4 @@
 <?php require '../models/Book.php';
-
 if ($_POST) {
     $book = new Book;
     $book->insertBook(

@@ -5,9 +5,12 @@ $(document).ready(function () {
 	});
 
 	$('#addbutton').click(function () {
-		var rowName = $('#rowName').val();
-
-		if (rowName !== '') {
+		var rowName = $('#rowName').val() || "";
+		//inputTitle
+		//inputName
+		//inputTag
+		//book_image
+		if (!Array.isArray(rowName)) {
 			var addForm = $('#addForm').serialize();
 			var myLocation = location['href'];
 			var index = myLocation.lastIndexOf('/');

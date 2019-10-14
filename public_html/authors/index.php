@@ -27,6 +27,7 @@ require "../navbar.html";
                         <th>Author</th>
                         <th>Actions</th>
                     </thead>
+
                     <tbody>
                         <?php
                         require_once '../models/Author.php';
@@ -45,27 +46,8 @@ require "../navbar.html";
                     </tbody>
                 </table>
             </div>
-            <div id="alert" class="alert alert-success">
-                <center><span id="alerttext"></span></center>
-            </div>
 
-            <?php require "../modal/addHeader.php"  ?>
-            <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Author:</label>
-            <input type="text" class="form-control" name="inputName" id="inputName">
-            <?php require "../modal/addFooter.php"  ?>
-
-            <?php require "../modal/editHeader.php"  ?>
-            <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Author:</label>
-            <input type="text" class="form-control" name="editName" id="editName">
-            <?php require "../modal/editFooter.php"  ?>
-
-            <?php require "../modal/deleteHeader.php"  ?>
-            <h5>
-                <center style="color:white;">Author: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></center>
-            </h5>
-
-            <?php require "../modal/deleteFooter.php"  ?>
-
+            <?php require "./modalView.php" ?>
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -38,7 +38,6 @@ require "../navbar.html";
                         foreach ($data as $row) : ?>
                             <th><?= $row->id;  ?></th>
                             <td><?= $row->title; ?></td>
-
                             <td><a href="/authorsBooks/index.php?id=<?= $row->author_id; ?>"><?= $row->author;  ?></a></td>
                             <td><a href="/tagsToBooks/index.php?id[]=<?= $row->tagID; ?> "><?= $row->tagName; ?></a></td>
                             <td><?= '<img src="/static/' . $row->book_image . '" alt="no_image" style="width:100px;height:100px;"> </img>'; ?></td>
@@ -47,45 +46,12 @@ require "../navbar.html";
                                 <a style="cursor:pointer;" class="btn btn-sm btn-danger delete" data-id="<?= $row->id; ?>"> Delete</a>
                             </td>
                             <tr>
-
                             <?php endforeach;  ?>
                     </tbody>
                 </table>
             </div>
-            <div id="alert" class="alert alert-success">
-                <center><span id="alerttext"></span></center>
-            </div>
 
-            <?php require "../modal/addHeader.php"  ?>
-            <label class="control-label" style="position:relative; color:white; top:7px;">Title:</label>
-            <input type="text" class="form-control" name="inputName" id="inputName">
-
-            <label class="control-label" style="position:relative; color:white; top:7px;">Author:</label> <input type="text" class="form-control" name="inputName" id="inputName">
-            <input type="text" class="form-control" name="inputName" id="inputName">
-
-
-            <label class="control-label" style="position:relative; color:white; top:7px;">Tag:</label>
-            <input type="text" class="form-control" name="inputName" id="inputName">
-
-            <label class="control-label" style="position:relative; color:white; top:7px;">Image:</label>
-            <?php require "../modal/addFooter.php"  ?>
-
-            <?php require "../modal/editHeader.php"  ?>
-            <label class="control-label" style="position:relative; color:white; top:7px;">Title:</label>
-            <label class="control-label" style="position:relative; color:white; top:7px;">Author:</label>
-            <label class="control-label" style="position:relative; color:white; top:7px;">Tag:</label>
-            <label class="control-label" style="position:relative; color:white; top:7px;">Image:</label> <?php require "../modal/editFooter.php"  ?>
-
-            <?php require "../modal/deleteHeader.php"  ?>
-            <h5>
-                <center style="color:white;">Title: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></center>
-                <center style="color:white;">Author: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></center>
-                <center style="color:white;">Tag: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></center>
-                <center style="color:white;">Image: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></center>
-            </h5>
-
-            <?php require "../modal/deleteFooter.php"  ?>
-
+            <?php require "./modalView.php" ?>
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
