@@ -57,7 +57,7 @@ $(document).ready(function() {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
 		$('#deleteID').modal('show');
-		$('#deleteName').text(rowName);
+		$('#deleteAuthor').text(rowName);
 		$('#deleteButton').val(id);
 	});
 
