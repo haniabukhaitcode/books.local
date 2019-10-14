@@ -10,7 +10,8 @@ require "../navbar.html";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background:#FFFBEB">
+
     <div class="container">
         <div style="height:50px;"></div>
         <div class="well" style="margin-left:auto; margin-right:auto; padding:auto; width:70%;">
