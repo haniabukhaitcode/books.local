@@ -36,17 +36,19 @@ require "../navbar.html";
                         $book = new Book();
                         $data = $book->fetchTagBooks();
                         foreach ($data as $row) : ?>
-                            <th><?= $row->id;  ?></th>
-                            <td id="rowTitle<?= $row->id; ?>"><?= $row->title; ?></td>
-                            <td><a href="/authorsBooks/index.php?id=<?= $row->author_id; ?>" id="rowAuth<?= $row->id; ?>"><?= $row->author;  ?></a></td>
-                            <td><a href="/tagsToBooks/index.php?id[]=<?= $row->tagID; ?> " id="rowTag<?= $row->id; ?>"><?= $row->tagName; ?></a></td>
-                            <td><a id="rowImage<?= $row->id; ?>"><?= '<img src="/static/' . $row->book_image . '" alt="no_image" style="width:100px;height:100px;"> </img>'; ?></a></td>
-                            <td>
-                                <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>"> Edit</a>&nbsp;
-                                <a style="cursor:pointer;" class="btn btn-sm btn-danger delete" data-id="<?= $row->id; ?>"> Delete</a>
-                            </td>
                             <tr>
-                            <?php endforeach;  ?>
+                                <th><?= $row->id;  ?></th>
+
+                                <td><?= $row->title; ?></td>
+                                <td><a href="/books.local/public_html/authorsBooks/index.php?id=<?= $row->author_id; ?>" id="<?= $row->id; ?>"><?= $row->author;  ?></a></td>
+                                <td><a href="/books.local/public_html/tagsToBooks/index.php?id[]=<?= $row->tagID; ?> " id="<?= $row->id; ?>"><?= $row->tagName; ?></a></td>
+                                <td><?= '<img src="/books.local/public_html/static/' . $row->book_image . '" alt="no_image" style="width:100px;height:100px;"> </img>'; ?></td>
+                                <td>
+                                    <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>"> Edit</a>&nbsp;
+                                    <a style="cursor:pointer;" class="btn btn-sm btn-danger delete" data-id="<?= $row->id; ?>"> Delete</a>
+                                </td>
+                            </tr>
+                        <?php endforeach;  ?>
                     </tbody>
                 </table>
             </div>

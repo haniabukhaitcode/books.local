@@ -29,7 +29,7 @@ $tag = new Tag();
 
         <div class="col-sm-12 mt-4">
             <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Tag:</label>
-            <select class="form-control" name="inputTag" id="inputTag" name="tags[]" multiple="multiple">
+            <select class="form-control" name="inputTag[]" id="inputTag" name="tags[]" multiple="multiple">
                 <?php
                 foreach ($tag->fetchAll() as $row) : ?>
                     <option value=<?= $row->id ?>><?= $row->tag ?></option>
@@ -43,7 +43,7 @@ $tag = new Tag();
             <?php
             if (!empty($book->book_image)) : ?>
                 <td>
-                    <img src="/books/uploads/' . $book->book_image . '" alt="" />
+                    <img id="book_image" src="/books/uploads/' . $book->book_image . '" alt="" />
                 </td>
             <?php endif; ?>
         </div>
@@ -58,7 +58,7 @@ $tag = new Tag();
 
         <div class="col-sm-12 mt-4">
             <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Title:</label>
-            <input type="text" class="form-control" name="editName" class="editName">
+            <input type="text" name="editName" class="editName">
         </div>
 
         <div class="col-sm-12 mt-4">
@@ -73,17 +73,17 @@ $tag = new Tag();
 
         <div class="col-sm-12 mt-4">
             <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Tag:</label>
-            <select class='form-control' type="text" name="editName" class="editName" name='tags[]' multiple='multiple'>
+            <select type="text" name="editName" class="editName" name='tags[]' multiple='multiple'>
                 <?php
                 foreach ($tag->fetchAll() as $row) : ?>
-                    <option value=<?= $row->id ?>><?= $row->tag ?></option>
+                    <option value="<?= $row->id ?>"><?= $row->tag ?></option>
                 <?php
                 endforeach; ?>
             </select>
         </div>
 
         <div class="col-sm-12 mt-4">
-            <label class="control-label" style="position:relative; color:white; margin-right:10px;">Images:</label>
+            <label style="position:relative; color:white; margin-right:10px;">Images:</label>
             <input type="file" name="book_image" id="book_image" style="color:white; margin-right:10px;">
             <?php
             if (!empty($book->book_image)) : ?>

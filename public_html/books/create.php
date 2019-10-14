@@ -1,5 +1,14 @@
 <?php require '../models/Book.php';
-if ($_POST) {
+
+$arrayGlobals = [
+    $_POST['inputTitle'],
+    $_POST['inputAuthor'],
+    $_POST['inputTag'],
+    $_POST['book_image']
+];
+
+
+if (isset($_POST)) {
     $book = new Book;
     $book->insertBook(
         [

@@ -1,35 +1,32 @@
-$(document).ready(function () {
-	$('#add').click(function () {
+$(document).ready(function() {
+	$('#add').click(function() {
 		$('#addnew').modal('show');
 		$('#addForm')[0].reset();
 	});
 
-	$('#addbutton').click(function () {
+	$('#addbutton').click(function() {
 		var rowName = $('#rowName').val();
-		var rowTitle = $('#rowTitle').val();
-		var rowAuth = $('#rowAuth').val();
-		var rowTag = $('#rowTag').val();
-		var rowImage = $('#rowImage').val();
 
-		if (rowName && rowTitle && rowAuth && rowTag && rowImage !== "") {
-			var addForm = $('#addForm').serialize();
+		if (rowName !== '') {
+			var addForm = $('#addForm').serialize(); //inputName=ddd
 			var myLocation = location['href'];
 			var index = myLocation.lastIndexOf('/');
 			if (index != -1) {
 				newLocation = myLocation.substr(0, index) + '/create.php';
 			}
-			console.log(rowName);
+
 			$.ajax({
 				type: 'POST',
 				url: newLocation,
 				data: addForm,
-				success: function () {
+				success: function() {
 					$('#addnew').modal('hide');
 					$('#addForm')[0].reset();
-
 					showTable();
 					$('#alert').slideDown();
 					$('#alerttext').text('Member Added Successfully');
+					console.log(newLocation);
+					console.log(addForm);
 				},
 			});
 		} else {
@@ -37,9 +34,8 @@ $(document).ready(function () {
 		}
 	});
 
-
 	//edit
-	$(document).on('click', '.edit', function () {
+	$(document).on('click', '.edit', function() {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
 		$('#editID').modal('show');
@@ -47,7 +43,7 @@ $(document).ready(function () {
 		$('#editButton').val(id);
 		console.log(rowName);
 	});
-	$('#editButton').click(function () {
+	$('#editButton').click(function() {
 		var id = $(this).val();
 		var editForm = $('#editForm').serialize();
 		var myLocation = location['href'];
@@ -59,7 +55,7 @@ $(document).ready(function () {
 			type: 'POST',
 			url: newLocation,
 			data: editForm + '&id=' + id,
-			success: function () {
+			success: function() {
 				$('#editID').modal('hide'); //*
 				$('#editForm')[0].reset(); //*
 				console.log(newLocation);
@@ -72,7 +68,7 @@ $(document).ready(function () {
 	//
 	//delete
 
-	$(document).on('click', '.delete', function () {
+	$(document).on('click', '.delete', function() {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
 		var rowTitle = $('#rowTitle' + id).val();
@@ -90,7 +86,7 @@ $(document).ready(function () {
 		$('#deleteButton').val(id);
 	});
 
-	$('#deleteButton').click(function () {
+	$('#deleteButton').click(function() {
 		var id = $(this).val();
 		var myLocation = location['href'];
 		var index = myLocation.lastIndexOf('/');
@@ -105,7 +101,7 @@ $(document).ready(function () {
 				id: id,
 			},
 			dataType: 'html',
-			success: function () {
+			success: function() {
 				$('#deleteID').modal('hide');
 				console.log(newLocation);
 				showTable();
@@ -121,9 +117,8 @@ function showTable() {
 		type: 'POST',
 		url: location,
 
-		success: function (data) {
+		success: function(data) {
 			$('#table').html(data);
-
 		},
 	});
 }

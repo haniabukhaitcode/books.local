@@ -1,6 +1,5 @@
 <?php
 require "../navbar.html";
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,10 +14,8 @@ require "../navbar.html";
         <div style="height:50px;"></div>
         <div class="well" style="margin-left:auto; margin-right:auto; padding:auto; width:70%;">
             <h4><strong>Create Authors</strong></h4>
-
             <span><a id="add" style="cursor:pointer; color:white;" class="btn btn-success col-3 mb-4"><span class="glyphicon glyphicon-plus"></span> Add New</a></span>
             <div style="height:15px;"></div>
-
             <div id="table">
                 <h1>From PHP</h1>
                 <table class="table table-dark">
@@ -35,7 +32,6 @@ require "../navbar.html";
                         foreach ($author->fetchAll() as $row) :  ?>
                             <tr>
                                 <th scope="row"><?= $row->id; ?></th>
-
                                 <td><span id="rowName<?= $row->id; ?>"><?= $row->author; ?></span></td>
                                 <td>
                                     <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>"> Edit</a>&nbsp;
