@@ -10,4 +10,4 @@
                 <div class="container-fluid">
                     <form id="editForm">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col " style="display: inline-flex">
