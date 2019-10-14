@@ -1,20 +1,30 @@
-$(document).ready(function() {
-	$('#add').click(function() {
+$(document).ready(function () {
+	$('#add').click(function () {
 		$('#addnew').modal('show');
 		$('#addForm')[0].reset();
 	});
 
-	$('#addbutton').click(function() {
+	$('#addbutton').click(function () {
 		var rowName = $('#rowName').val();
+
 		if (rowName !== '') {
 			var addForm = $('#addForm').serialize();
+			var myLocation = location['href'];
+			var index = myLocation.lastIndexOf('/');
+			if (index != -1) {
+				newLocation = myLocation.substr(0, index) + '/create.php';
+			}
+			console.log(rowName);
 			$.ajax({
 				type: 'POST',
-				url: '../authors/create.php',
+				url: newLocation,
 				data: addForm,
-				success: function() {
+				success: function () {
 					$('#addnew').modal('hide');
 					$('#addForm')[0].reset();
+
+					console.log(newLocation);
+					console.log(addForm);
 					showTable();
 					$('#alert').slideDown();
 					$('#alerttext').text('Member Added Successfully');
@@ -25,8 +35,9 @@ $(document).ready(function() {
 		}
 	});
 
+
 	//edit
-	$(document).on('click', '.edit', function() {
+	$(document).on('click', '.edit', function () {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
 		$('#editID').modal('show');
@@ -34,16 +45,22 @@ $(document).ready(function() {
 		$('#editButton').val(id);
 	});
 
-	$('#editButton').click(function() {
+	$('#editButton').click(function () {
 		var id = $(this).val();
 		var editForm = $('#editForm').serialize();
+		var myLocation = location['href'];
+		var index = myLocation.lastIndexOf('/');
+		if (index != -1) {
+			newLocation = myLocation.substr(0, index) + '/edit.php';
+		}
 		$.ajax({
 			type: 'POST',
-			url: '../authors/edit.php',
+			url: newLocation,
 			data: editForm + '&id=' + id,
-			success: function() {
+			success: function () {
 				$('#editID').modal('hide'); //*
 				$('#editForm')[0].reset(); //*
+				console.log(newLocation);
 				showTable();
 				$('#alert').slideDown();
 				$('#alerttext').text('Member Updated Successfully');
@@ -53,15 +70,15 @@ $(document).ready(function() {
 	//
 	//delete
 
-	$(document).on('click', '.delete', function() {
+	$(document).on('click', '.delete', function () {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
 		$('#deleteID').modal('show');
-		$('#deleteAuthor').text(rowName);
+		$('#deleteName').text(rowName);
 		$('#deleteButton').val(id);
 	});
 
-	$('#deleteButton').click(function() {
+	$('#deleteButton').click(function () {
 		var id = $(this).val();
 		var myLocation = location['href'];
 		var index = myLocation.lastIndexOf('/');
@@ -76,9 +93,9 @@ $(document).ready(function() {
 				id: id,
 			},
 			dataType: 'html',
-			success: function() {
+			success: function () {
 				$('#deleteID').modal('hide');
-
+				console.log(newLocation);
 				showTable();
 				$('#alert').slideDown();
 				$('#alerttext').text('Member Deleted Successfully');
@@ -92,9 +109,9 @@ function showTable() {
 		type: 'POST',
 		url: location,
 
-		success: function(data) {
+		success: function (data) {
 			$('#table').html(data);
-			console.log(data);
+
 		},
 	});
 }

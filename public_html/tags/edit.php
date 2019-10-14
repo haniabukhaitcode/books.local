@@ -1,13 +1,13 @@
 <?php
 
 require_once "../models/Tag.php";
-if (isset($_POST['editTag'])) {
+if (isset($_POST['editName'])) {
     $tag = new Tag;
 
     $tag->update(
 
         [
-            'tag' => $_POST['editTag']
+            'tag' => $_POST['editName']
         ],
 
         [

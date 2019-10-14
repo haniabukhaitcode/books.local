@@ -17,8 +17,11 @@ require "../navbar.html";
             <div style="height:50px;"></div>
             <div class="well" style="margin-left:auto; margin-right:auto; padding:auto; width:70%;">
                 <h4><strong>Create Tags</strong></h4>
+
                 <span><a id="add" style="cursor:pointer; color:white;" class="btn btn-success col-3 mb-4"><span class="glyphicon glyphicon-plus"></span> Add New</a></span>
                 <div style="height:15px;"></div>
+
+
 
                 <div id="table">
                     <h1>From PHP</h1>
@@ -34,24 +37,19 @@ require "../navbar.html";
                             $tag = new Tag;
                             foreach ($tag->fetchAll() as $row) :  ?>
                                 <tr>
-
                                     <th scope="row"><?= $row->id; ?></th>
 
                                     <td><span id="rowName<?= $row->id; ?>"><?= $row->tag; ?></span></td>
 
                                     <td>
-                                        <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>">Edit</a>&nbsp;
-                                        <a style="cursor:pointer;" class="btn btn-sm btn-danger delete" data-id="<?= $row->id; ?>">Delete</a>
+                                        <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>"> Edit</a>&nbsp;
+                                        <a style="cursor:pointer;" class="btn btn-sm btn-danger delete" data-id="<?= $row->id; ?>"> Delete</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
-
-
-
-
                 <div id="alert" class="alert alert-success">
                     <center><span id="alerttext"></span></center>
                 </div>
@@ -66,7 +64,7 @@ require "../navbar.html";
 
                 <?php require "../modal/deleteHeader.php"  ?>
                 <h5>
-                    <center style="color:white;">Tag: <strong><span style="color:white;" name="deleteTag" id="deleteTag"></span></strong></center>
+                    <center style="color:white;">Tag: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></center>
                 </h5>
 
                 <?php require "../modal/deleteFooter.php"  ?>

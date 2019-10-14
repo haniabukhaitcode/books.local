@@ -64,7 +64,7 @@ require "../navbar.html";
 
                 <?php require "../modal/deleteHeader.php"  ?>
                 <h5>
-                    <center style="color:white;">Author: <strong><span style="color:white;" name="deleteAuthor" id="deleteAuthor"></span></strong></center>
+                    <center style="color:white;">Author: <strong><span style="color:white;" name="deleteName" id="deleteName"></span></strong></center>
                 </h5>
 
                 <?php require "../modal/deleteFooter.php"  ?>
