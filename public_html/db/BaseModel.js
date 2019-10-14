@@ -23,8 +23,6 @@ $(document).ready(function () {
 					$('#addnew').modal('hide');
 					$('#addForm')[0].reset();
 
-					console.log(newLocation);
-					console.log(addForm);
 					showTable();
 					$('#alert').slideDown();
 					$('#alerttext').text('Member Added Successfully');
@@ -43,8 +41,8 @@ $(document).ready(function () {
 		$('#editID').modal('show');
 		$('#editName').val(rowName);
 		$('#editButton').val(id);
+		console.log(rowName);
 	});
-
 	$('#editButton').click(function () {
 		var id = $(this).val();
 		var editForm = $('#editForm').serialize();

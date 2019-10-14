@@ -1,7 +1,7 @@
 <?php
 require_once '../models/Author.php';
-if (isset($_POST['author'])) {
+if (isset($_POST['inputName'])) {
     $author = new Author;
 
-    $author->insert(['author' => $_POST['author']]);
+    $author->insert(['author' => $_POST['inputName']]);
 }
