@@ -1,10 +1,10 @@
-$(document).ready(function () {
-	$('#add').click(function () {
+$(document).ready(function() {
+	$('#add').click(function() {
 		$('#addnew').modal('show');
 		$('#addForm')[0].reset();
 	});
 
-	$('#addbutton').click(function () {
+	$('#addbutton').click(function() {
 		var rowName = $('#rowName').val();
 
 		if (rowName !== '') {
@@ -19,7 +19,7 @@ $(document).ready(function () {
 				type: 'POST',
 				url: newLocation,
 				data: addForm,
-				success: function () {
+				success: function() {
 					$('#addnew').modal('hide');
 					$('#addForm')[0].reset();
 					showTable();
@@ -35,7 +35,7 @@ $(document).ready(function () {
 	});
 
 	//edit
-	$(document).on('click', '.edit', function () {
+	$(document).on('click', '.edit', function() {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
 		$('#editID').modal('show');
@@ -43,7 +43,7 @@ $(document).ready(function () {
 		$('#editButton').val(id);
 		console.log(rowName);
 	});
-	$('#editButton').click(function () {
+	$('#editButton').click(function() {
 		var id = $(this).val();
 		var editForm = $('#editForm').serialize();
 		var myLocation = location['href'];
@@ -55,7 +55,7 @@ $(document).ready(function () {
 			type: 'POST',
 			url: newLocation,
 			data: editForm + '&id=' + id,
-			success: function () {
+			success: function() {
 				$('#editID').modal('hide'); //*
 				$('#editForm')[0].reset(); //*
 				console.log(newLocation);
@@ -68,14 +68,25 @@ $(document).ready(function () {
 	//
 	//delete
 
-	$(document).on('click', '.delete', function () {
+	$(document).on('click', '.delete', function() {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
+		var rowTitle = $('#rowTitle' + id).val();
+		var rowAuth = $('#rowAuth' + id).val();
+		var rowTag = $('#rowTag' + id).val();
+		var rowImage = $('#rowImage' + id).val();
+
 		$('#deleteID').modal('show');
 		$('#deleteName').text(rowName);
+
+		$('#deleteTitle').text(rowTitle);
+		$('#deleteAuthor').text(rowAuth);
+		$('#deleteTagName').text(rowTag);
+		$('#deleteBookImage').text(rowImage);
+		$('#deleteButton').val(id);
 	});
 
-	$('#deleteButton').click(function () {
+	$('#deleteButton').click(function() {
 		var id = $(this).val();
 		var myLocation = location['href'];
 		var index = myLocation.lastIndexOf('/');
@@ -90,7 +101,7 @@ $(document).ready(function () {
 				id: id,
 			},
 			dataType: 'html',
-			success: function () {
+			success: function() {
 				$('#deleteID').modal('hide');
 				console.log(newLocation);
 				showTable();
@@ -112,7 +123,7 @@ function showTable() {
 		url: newLocation,
 		data: { handler: 1 },
 
-		success: function (data) {
+		success: function(data) {
 			$('#table').html(data);
 		},
 	});
