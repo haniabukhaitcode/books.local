@@ -8,7 +8,11 @@ $(document).ready(function() {
 		var rowName = $('#rowName').val();
 
 		if (rowName !== '') {
-			var addForm = $('#addForm').serialize(); //inputName=ddd
+			var data = {
+				tags: $('#tagsSelect').val(),
+				author_id: $('#inputAuthor').val(),
+				title: $('#inputTitle').val(),
+			};
 			var myLocation = location['href'];
 			var index = myLocation.lastIndexOf('/');
 			if (index != -1) {
@@ -18,7 +22,7 @@ $(document).ready(function() {
 			$.ajax({
 				type: 'POST',
 				url: newLocation,
-				data: addForm,
+				data: data,
 				success: function() {
 					$('#addnew').modal('hide');
 					$('#addForm')[0].reset();
@@ -45,20 +49,25 @@ $(document).ready(function() {
 	});
 	$('#editButton').click(function() {
 		var id = $(this).val();
-		var editForm = $('#editForm').serialize();
+		var data = {
+			tags: $('#tagsSelect').val(),
+			author_id: $('#inputAuthor').val(),
+			title: $('#inputTitle').val(),
+		};
 		var myLocation = location['href'];
 		var index = myLocation.lastIndexOf('/');
 		if (index != -1) {
-			newLocation = myLocation.substr(0, index) + '/edit.php';
+			newLocation = myLocation.substr(0, index) + '/edit.php?id=' + id;
 		}
 		$.ajax({
 			type: 'POST',
 			url: newLocation,
-			data: editForm + '&id=' + id,
+			data: data,
 			success: function() {
 				$('#editID').modal('hide'); //*
 				$('#editForm')[0].reset(); //*
 				console.log(newLocation);
+				console.log(editForm);
 				showTable();
 				$('#alert').slideDown();
 				$('#alerttext').text('Member Updated Successfully');

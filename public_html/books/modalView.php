@@ -29,7 +29,7 @@ $tag = new Tag();
 
         <div class="col-sm-12 mt-4">
             <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Tag:</label>
-            <select class="form-control" name="inputTag[]" id="inputTag" name="tags[]" multiple="multiple">
+            <select class="form-control" id="tagsSelect" name="tags" multiple="multiple">
                 <?php
                 foreach ($tag->fetchAll() as $row) : ?>
                     <option value=<?= $row->id ?>><?= $row->tag ?></option>
@@ -72,7 +72,7 @@ $tag = new Tag();
 
         <div class="col-sm-12 mt-4">
             <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Tag:</label>
-            <select class="form-control" name="inputTag[]" id="inputTag" name="tags[]" multiple="multiple">
+            <select class="form-control" id="tagsSelect" name="tags" multiple="multiple">
                 <?php
                 foreach ($tag->fetchAll() as $row) : ?>
                     <option value=<?= $row->id ?>><?= $row->tag ?></option>

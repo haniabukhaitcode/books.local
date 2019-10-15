@@ -15,7 +15,7 @@ if ($_POST) {
             "title" => $_POST["title"],
             "author_id" => $_POST["author_id"],
             "tags" => $_POST["tags"],
-            "image" => $_FILES["book_image"]
+            // "image" => null
         ]
 
     );

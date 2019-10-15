@@ -23,11 +23,11 @@ class Book extends BaseModel
     public function insertBook(array $data)
     {
         $tagModel = new BookTag();
-        $imageName = $this->uploadPhoto($data['image'])["name"];
+        // $imageName = $this->uploadPhoto($data['image'])["name"];
         $tags = $data['tags'];
-        unset($data['image']);
+        // unset($data['image']);
         unset($data['tags']);
-        $data['book_image'] = $imageName;
+        $data['book_image'] = 'fuckoff';
         $this->insert($data);
         $bookId = $this->conn->lastInsertId();
         foreach ($tags as $tag) {
@@ -42,11 +42,11 @@ class Book extends BaseModel
     function updateBook(int $id, array $data)
     {
         $tagModel = new BookTag();
-        $imageName = $this->uploadPhoto($data['image'])["name"];
+        // $imageName = $this->uploadPhoto($data['image'])["name"];
         $tags = $data['tags'];
-        unset($data['image']);
+        // unset($data['image']);
         unset($data['tags']);
-        $data['book_image'] = $imageName;
+        // $data['book_image'] = $imageName;
         $this->update($data, array('id' => $id));
         $tagModel->delete(array("book_id" => $id));
         foreach ($tags as $tag) {
