@@ -34,15 +34,15 @@ require "../navbar.html";
                         <?php
                         require '../models/Book.php';
                         $book = new Book();
-                        $data = $book->fetchTagBooks();
-                        foreach ($data as $row) : ?>
+
+                        foreach ($book->fetchTagBooks() as $row) : ?>
                             <tr>
                                 <th><?= $row->id;  ?></th>
 
-                                <td><?= $row->title; ?></td>
-                                <td><a href="/books.local/public_html/authorsBooks/index.php?id=<?= $row->author_id; ?>" id="<?= $row->id; ?>"><?= $row->author;  ?></a></td>
-                                <td><a href="/books.local/public_html/tagsToBooks/index.php?id[]=<?= $row->tagID; ?> " id="<?= $row->id; ?>"><?= $row->tagName; ?></a></td>
-                                <td><?= '<img src="/books.local/public_html/static/' . $row->book_image . '" alt="no_image" style="width:100px;height:100px;"> </img>'; ?></td>
+                                <td id="deleteTitle"><?= $row->title; ?></td>
+                                <td><a href="/authorsBooks/index.php?id=<?= $row->author_id; ?>" id="<?= $row->id; ?>" id="deleteAuthor"><?= $row->author;  ?></a></td>
+                                <td><a href="/tagsToBooks/index.php?id[]=<?= $row->tagID; ?> " id="<?= $row->id; ?>" id="deleteTagName"><?= $row->tagName; ?></a></td>
+                                <td><?= '<img src="/static/' . $row->book_image . '" alt="no_image" style="width:100px;height:100px;" id="deleteBookImage"> </img>'; ?></td>
                                 <td>
                                     <a style="cursor:pointer;" class="btn btn-sm btn-primary edit" data-id="<?= $row->id; ?>"> Edit</a>&nbsp;
                                     <a style="cursor:pointer;" class="btn btn-sm btn-danger delete" data-id="<?= $row->id; ?>"> Delete</a>
@@ -63,70 +63,3 @@ require "../navbar.html";
 </body>
 
 </html>
-
-
-<div class="row">
-    <div class="col-md-12">
-
-        <div id="mdb-lightbox-ui"></div>
-
-        <div class="mdb-lightbox">
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(145).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(145).jpg" class="img-fluid">
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(150).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(150).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(152).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(152).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(42).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(42).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(151).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(151).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(148).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(148).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(147).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(149).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(149).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-        </div>
-
-    </div>
-</div>

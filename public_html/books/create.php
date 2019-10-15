@@ -8,14 +8,18 @@ $arrayGlobals = [
 ];
 
 
-if (isset($_POST)) {
+if (isset($arrayGlobals)) {
     $book = new Book;
     $book->insertBook(
         [
-            "title" => $_POST["title"],
-            "author_id" => $_POST["author_id"],
-            "tags" => $_POST["tags"],
+            "title" => $_POST["inputTitle"],
+            "author_id" => $_POST["inputAuthor"],
+            "tags" => $_POST["inputTag"],
             "image" => $_FILES["book_image"]
         ]
     );
+    print_r($arrayGlobals);
+    print_r($book->insertBook);
+
+    die;
 }
