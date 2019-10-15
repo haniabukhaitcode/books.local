@@ -71,11 +71,8 @@ $(document).ready(function () {
 	$(document).on('click', '.delete', function () {
 		var id = $(this).data('id');
 		var rowName = $('#rowName' + id).text();
-
 		$('#deleteID').modal('show');
 		$('#deleteName').text(rowName);
-
-
 	});
 
 	$('#deleteButton').click(function () {
@@ -105,9 +102,15 @@ $(document).ready(function () {
 });
 
 function showTable() {
+	var myLocation = location['href'];
+	var index = myLocation.lastIndexOf('/');
+	if (index != -1) {
+		newLocation = myLocation.substr(0, index) + '/handler.php';
+	}
 	$.ajax({
 		type: 'POST',
-		url: location,
+		url: newLocation,
+		data: { handler: 1 },
 
 		success: function (data) {
 			$('#table').html(data);
