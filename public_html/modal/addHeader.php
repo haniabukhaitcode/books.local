@@ -7,6 +7,6 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <form id="addForm">
-                        <div class="row">
-                            <div class="col " style="display: inline-flex">
+
+                    <div class="row">
+                        <div class="col " style="display: inline-flex">
