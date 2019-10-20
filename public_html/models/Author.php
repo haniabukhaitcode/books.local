@@ -1,6 +1,6 @@
 <?php
 
-require_once("../db/BaseModel.php");
+require_once "../db/BaseModel.php";
 class Author extends BaseModel
 {
     protected $fields = [
