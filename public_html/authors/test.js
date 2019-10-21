@@ -1,8 +1,8 @@
-$(function() {
+$(function () {
 	$.validator.addMethod(
 		'inputName',
-		function(value, element) {
-			return this.optional(element) || (value.length >= 3 && /\d/.test(value) && /[a-z]/i.test(value));
+		function (value, element) {
+			return element.value.length >= 3 && /\d/.test(value) && /[a-z]/i.test(value);
 		},
 		'At least 3 characters and contains one number and one letter',
 	);
@@ -17,13 +17,13 @@ $('#addForm').validate({
 	},
 });
 
-$(function() {
+$(function () {
 	$.validator.addMethod(
 		'editName',
-		function(value, element) {
-			return this.optional(element) || (value.length >= 3 && /\d/.test(value) && /[a-z]/i.test(value));
+		function (value, element) {
+			return element.value.length >= 3 && /\d/.test(value) && /[a-z]/i.test(value);
 		},
-		'At least 2 characters and contains one number and one letter',
+		'At least 3 characters and contains one number and one letter',
 	);
 });
 
