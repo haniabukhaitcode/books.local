@@ -39,7 +39,6 @@
                                                 <input type="text" class="form-control" name="inputName" id="inputName">
                                             </div>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>

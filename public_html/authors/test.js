@@ -1,37 +1,45 @@
-$(function () {
-	$.validator.addMethod(
-		'inputName',
-		function (value, element) {
-			return element.value.length >= 3 && /\d/.test(value) && /[a-z]/i.test(value);
-		},
-		'At least 3 characters and contains one number and one letter',
-	);
-});
 
-$('#addForm').validate({
-	rules: {
-		inputName: {
-			required: true,
-			inputName: true,
-		},
-	},
-});
 
-$(function () {
-	$.validator.addMethod(
-		'editName',
-		function (value, element) {
-			return element.value.length >= 3 && /\d/.test(value) && /[a-z]/i.test(value);
-		},
-		'At least 3 characters and contains one number and one letter',
-	);
-});
+$(document).ready(function () {
+	$('#add').click(function () {
+		$('#addnew').modal('show');
+		$('#addForm')[0].reset();
+	});
+	$(function () {
 
-$('#editForm').validate({
-	rules: {
-		editName: {
-			required: true,
-			editName: true,
-		},
-	},
+		var addForm = $('#addForm').serialize();
+		$("form[name='addAuthor']").validate({
+			rules: {
+				inputName: {
+					required: true,
+					minlength: 3
+				}
+			},
+			messages: {
+
+				inputName: {
+					required: "Please provide a password",
+					minlength: "Author Name must be at least 3 characters long"
+				},
+
+			},
+			submitHandler: function (form) {
+				$(form).ajaxSubmit({
+					type: "POST",
+					url: newLocation,
+					data: addForm,
+					success: function () {
+						$('#contact-form').hide();
+						$("form[name='addAuthor']").resetForm();
+						showTable();
+						$('#alert').slideDown();
+						$('#alerttext').text('Member Added Successfully');
+
+
+					}
+				});
+			}
+
+		});
+	});
 });
