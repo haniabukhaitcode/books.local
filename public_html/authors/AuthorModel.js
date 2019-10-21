@@ -1,3 +1,13 @@
+$(function() {
+	$.validator.addMethod(
+		'inputName',
+		function(value, element) {
+			return this.optional(element) || (value.length >= 3 && /\d/.test(value));
+		},
+		'Name has to be at least 3 characters long and contain at least 1 number and 1 character',
+	);
+});
+
 $(document).ready(function() {
 	$('#add').click(function() {
 		$('#addnew').modal('show');
