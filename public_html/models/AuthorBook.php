@@ -1,6 +1,6 @@
 <?php
-require_once("../BaseModel/BaseModel.php");
-require_once("../models/BookTag.php");
+require "BaseModel.php";
+require "BookTag.php";
 class AuthorBook extends BaseModel
 {
     protected $fields = [

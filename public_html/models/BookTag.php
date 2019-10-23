@@ -1,5 +1,5 @@
 <?php
-require_once "../BaseModel/BaseModel.php";
+require_once "BaseModel.php";
 
 class BookTag extends BaseModel
 {
