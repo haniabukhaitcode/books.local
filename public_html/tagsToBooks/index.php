@@ -9,7 +9,7 @@
 <body style="background:#FFFBEB">
     <?php
     require_once '../models/TagsToBooks.php';
-    require_once '../navbar.html';
+    require_once '../public/navbar.html';
 
     if ($_POST) {
         header("Location: " . htmlspecialchars($_SERVER["PHP_SELF"]) . "?id[]=" . implode(",", $_POST['tags']) . "");
@@ -46,7 +46,7 @@
                 <div class="col-lg-3 col-md-4 col-6">
                     <h5 class="d-block mb-4 h-100">
                         <center>Book Tag: <?= $row->tag; ?></center>
-                        <?= '<img  class="img-fluid img-thumbnail" style="min-width:100%; max-width:100%; min-height:200px; max-height:200px;" src="/static/' . $row->book_image . ' " alt="picture" />'; ?>
+                        <?= '<img  class="img-fluid img-thumbnail" style="min-width:100%; max-width:100%; min-height:200px; max-height:200px;" src="/books.local/public_html/public/images/' . $row->book_image . ' " alt="picture" />'; ?>
                     </h5>
                 </div>
             <?php endforeach; ?>
