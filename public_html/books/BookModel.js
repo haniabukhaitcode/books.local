@@ -128,19 +128,22 @@ $(document).ready(function() {
 	});
 });
 
-function showTable() {
+myLocation = lastIndex => {
 	var myLocation = location['href'];
 	var index = myLocation.lastIndexOf('/');
 	if (index != -1) {
-		newLocation = myLocation.substr(0, index) + '/handler.php';
+		newLocation = myLocation.substr(0, index) + lastIndex;
 	}
+	return newLocation;
+};
+showTable = () => {
 	$.ajax({
 		type: 'POST',
-		url: newLocation,
+		url: myLocation('/handler.php'),
 		data: { handler: 1 },
 
 		success: function(data) {
 			$('#table').html(data);
 		},
 	});
-}
+};
