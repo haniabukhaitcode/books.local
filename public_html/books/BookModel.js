@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	//add
-	$('#add').click(function() {
+	$('#add').click(() => {
 		$('#addnew').modal('show');
 		$('#addForm')[0].reset();
 	});
 
-	$('#addForm').submit(function(e) {
+	$('#addForm').submit(e => {
 		e.preventDefault();
 		var rowName = $('#rowName').val();
 
@@ -18,15 +18,9 @@ $(document).ready(function() {
 		form_data.append('title', $('#inputTitle').val());
 
 		if (rowName !== '') {
-			var myLocation = location['href'];
-			var index = myLocation.lastIndexOf('/');
-			if (index != -1) {
-				newLocation = myLocation.substr(0, index) + '/create.php';
-			}
-
 			$.ajax({
 				type: 'POST',
-				url: newLocation,
+				url: myLocation('/create.php'),
 				data: form_data,
 				contentType: false,
 				processData: false,
@@ -68,58 +62,46 @@ $(document).ready(function() {
 		form_data.append('author_id', $('#inputAuthorEdit').val());
 		form_data.append('title', $('#inputTitleEdit').val());
 
-		var myLocation = location['href'];
-		var index = myLocation.lastIndexOf('/');
-		if (index != -1) {
-			newLocation = myLocation.substr(0, index) + '/edit.php?id=' + id;
-		}
-
 		$.ajax({
 			type: 'POST',
-			url: newLocation,
+			url: myLocation('/edit.php?id=' + id),
 			data: form_data,
 			contentType: false,
 			processData: false,
 			success: function() {
 				$('#editID').modal('hide'); //*
 				$('#editForm')[0].reset(); //*
-				console.log(newLocation);
-				console.log(editForm);
+
 				showTable();
 				$('#alert').slideDown();
 				$('#alerttext').text('Member Updated Successfully');
 			},
 		});
 	});
-	//
+
 	//delete
 
 	$(document).on('click', '.delete', function() {
 		var id = $(this).data('id');
+
 		var rowName = $('#rowName' + id).text();
 		$('#deleteID').modal('show');
 		$('#deleteName').text(rowName);
 		$('#deleteButton').val(id);
 	});
-
 	$('#deleteButton').click(function() {
 		var id = $(this).val();
-		var myLocation = location['href'];
-		var index = myLocation.lastIndexOf('/');
-		if (index != -1) {
-			newLocation = myLocation.substr(0, index) + '/delete.php';
-		}
 
 		$.ajax({
 			type: 'POST',
-			url: newLocation,
+			url: myLocation('/delete.php'),
 			data: {
 				id: id,
 			},
 			dataType: 'html',
 			success: function() {
 				$('#deleteID').modal('hide');
-				console.log(newLocation);
+
 				showTable();
 				$('#alert').slideDown();
 				$('#alerttext').text('Member Deleted Successfully');
@@ -128,14 +110,6 @@ $(document).ready(function() {
 	});
 });
 
-myLocation = lastIndex => {
-	var myLocation = location['href'];
-	var index = myLocation.lastIndexOf('/');
-	if (index != -1) {
-		newLocation = myLocation.substr(0, index) + lastIndex;
-	}
-	return newLocation;
-};
 showTable = () => {
 	$.ajax({
 		type: 'POST',
@@ -146,4 +120,12 @@ showTable = () => {
 			$('#table').html(data);
 		},
 	});
+};
+myLocation = lastIndex => {
+	var myLocation = location['href'];
+	var index = myLocation.lastIndexOf('/');
+	if (index != -1) {
+		newLocation = myLocation.substr(0, index) + lastIndex;
+	}
+	return newLocation;
 };
