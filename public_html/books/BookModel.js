@@ -40,13 +40,13 @@ $(document).ready(function() {
 	//edit
 	$(document).on('click', '.edit', function() {
 		var id = $(this).data('id');
-		var rowName = $('#rowName' + id).text();
+		var inputTitle = $('#inputTitle' + id).text();
 		var rowName = $('#idVal')
 			.val(id)
 			.change();
 		$('#editID').modal('show');
 		$('#editName').val(rowName);
-		$('#editButton').val(id);
+		$('#inputTitleEdit').val(inputTitle);
 		console.log(rowName);
 	});
 

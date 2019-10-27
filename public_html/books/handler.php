@@ -18,7 +18,7 @@ if (isset($_POST['handler'])) : ?>
                 foreach ($data as $row) : ?>
                 <tr>
                     <th scope="row"><?= $row->id; ?></th>
-                    <td><span id="rowName<?= $row->id; ?>"><?= $row->title; ?></span></td>
+                    <td><span id="inputTitle<?= $row->id; ?>"><?= $row->title; ?></span></td>
                     <td><a href="/books.local/public_html/authorsBooks/index.php?id=<?= $row->author_id; ?>"><?= $row->author;  ?></a></td>
                     <td><a href="/books.local/public_html/tagsToBooks/index.php?id[]=<?= $row->tagID; ?> "><?= $row->tagName; ?></a></td>
                     <td><?= '<img src="/books.local/public_html/public/images/' . $row->book_image . '" alt="no_image" style="width:100px;height:100px;"> </img>'; ?></td>
