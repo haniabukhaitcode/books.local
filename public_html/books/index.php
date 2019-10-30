@@ -11,6 +11,12 @@
 require "../public/navbar.html";
 
 ?>
+<style>
+    label#title-error.error {
+        color: red;
+        font-size: 18px;
+    }
+</style>
 
 <body style="background:#FFFBEB">
     <div class="container">
@@ -47,7 +53,13 @@ require "../public/navbar.html";
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+
+
     <script src="http://malsup.github.com/jquery.form.js"></script>
+
 
     <script src="BookModel.js"></script>
     </div>

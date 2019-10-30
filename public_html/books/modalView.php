@@ -11,7 +11,7 @@ $tag = new Tag();
 
 <div id="userModal" class="modal fade">
     <div class="modal-dialog">
-        <form method="post" id="user_form" enctype="multipart/form-data">
+        <form method="post" id="user_form" action="create.php" enctype="multipart/form-data">
             <div class="modal-content" style="background-color:#32383e">
                 <div class="modal-header">
                     <h3 style="margin-left: 0; color:white;" class="modal-title" id="myModalLabel">Add New Data</h3>
