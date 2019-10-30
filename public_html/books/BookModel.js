@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+	$('#user_form').ajaxForm();
+
 	$('#add_button').click(function () {
 		$('#user_form')[0].reset();
 		$('.modal-title').text('Add User');
@@ -57,43 +60,47 @@ $(document).ready(function () {
 		],
 	});
 
-	$(document).on('submit', '#user_form', function (event) {
-		event.preventDefault();
+	// $(document).on('submit', '#user_form', function (event) {
+	// 	event.preventDefault();
+	// 	$(this).ajaxSubmit();
+	// 	event.preventDefault();
 
-		var title = $('#title').val();
-		var author_id = $('#author_id').val();
-		var tags = $('#tags').val();
-		var extension = $('#book_image')
-			.val()
-			.split('.')
-			.pop()
-			.toLowerCase();
-		if (extension != '') {
-			if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-				alert('Invalid Image File');
-				$('#book_image').val('');
-				return false;
-			}
-		}
+	// var title = $('#title').val();
+	// var author_id = $('#author_id').val();
+	// var tags = $('#tags').val();
+	// var extension = $('#book_image')
+	// 	.val()
+	// 	.split('.')
+	// 	.pop()
+	// 	.toLowerCase();
+	// if (extension != '') {
+	// 	if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+	// 		alert('Invalid Image File');
+	// 		$('#book_image').val('');
+	// 		return false;
+	// 	}
+	// }
+	//var queryString = $(this).formSerialize();
+	//$.post('create.php', queryString); 
+	// if (title != '' && author_id != '' && tags != '') {
+	// $.ajax({
+	// 	url: 'create.php',
+	// 	method: 'POST',
+	// 	data: new FormData(this),
+	// 	contentType: false,
+	// 	processData: false,
+	// 	success: function (data) {
+	// 		$('#user_form')[0].reset();
+	// 		$('#userModal').modal('hide');
+	// 		dataTable.ajax.reload();
+	// 		console.log(data);
+	// 	},
+	// });
 
-		if (title != '' && author_id != '' && tags != '') {
-			$.ajax({
-				url: 'create.php',
-				method: 'POST',
-				data: new FormData(this),
-				contentType: false,
-				processData: false,
-				success: function (data) {
-					$('#user_form')[0].reset();
-					$('#userModal').modal('hide');
-					console.log(data);
-					dataTable.ajax.reload();
-				},
-			});
-		} else {
-			alert('Both Fields are Required');
-		}
-	});
+	// } else {
+	// 	alert('Both Fields are Required');
+	// }
+	// });
 
 	$(document).on('click', '.update', function () {
 		var user_id = $(this).attr('id');
