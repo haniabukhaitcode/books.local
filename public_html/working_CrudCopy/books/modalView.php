@@ -12,17 +12,17 @@ $tag = new Tag();
 <div id="userModal" class="modal fade">
     <div class="modal-dialog">
         <form method="post" id="user_form" enctype="multipart/form-data">
-            <div class="modal-content">
+            <div class="modal-content" style="background-color:#32383e">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Add User</h4>
+                    <h3 style="margin-left: 0; color:white;" class="modal-title" id="myModalLabel">Add New Data</h3>
+                    <button type="button" class="close" style="color: white" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id" class="form-control" />
-                    <label>Enter Title</label>
+                    <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Title:</label>
                     <input type="text" name="title" id="title" class="form-control" />
                     <br />
-                    <label>Enter Author </label>
+                    <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Author:</label>
 
                     <select type="text" class="form-control" name="author_id" id="author_id">
                         <?php
@@ -31,9 +31,8 @@ $tag = new Tag();
                         <?php endforeach; ?>
                     </select>
                     <br />
-                    <label>Enter Tags </label>
-
-                    <select type="text" name="tags[]" id="tags" class="tags" class="form-control" multiple="multiple">
+                    <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Tags:</label>
+                    <select type="text" name="tags[]" id="tags" class="form-control tags" multiple="multiple">
                         <?php
                         foreach ($tag->fetchAll() as $row) : ?>
                             <option value=<?= $row->id ?>><?= $row->tag ?></option>
@@ -41,7 +40,7 @@ $tag = new Tag();
                         endforeach; ?>
                     </select>
                     <br />
-                    <label>Select User Image</label>
+                    <label class="control-label" style="position:relative; color:white;  margin-right:10px;">Image:</label>
                     <input type="file" name="book_image" id="book_image" />
                     <span id="user_uploaded_image"></span>
                 </div>

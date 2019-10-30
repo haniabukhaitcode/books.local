@@ -12,26 +12,25 @@ require "../public/navbar.html";
 
 ?>
 
-<body>
-    <div class="container box">
-        <h1 align="center">PHP PDO Ajax CRUD with Data Tables and Bootstrap Modals</h1>
-        <br />
-        <div class="table-responsive">
-            <br />
-            <div align="right">
-                <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-info btn-lg">Add</button>
-            </div>
-            <br /><br />
-            <table id="user_data" class="table table-bordered table-striped">
+<body style="background:#FFFBEB">
+    <div class="container">
+        <div style="height:50px;"></div>
+        <div class="well" style="margin-left:auto; margin-right:auto; padding:auto;">
+            <h4><strong>Create Authors</strong></h4>
+            <span>
+                <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" style="cursor:pointer; color:white;" class="btn btn-success col-3 mb-4">Add</button>
+            </span>
+            <div style="height:15px;"></div>
+            <table id="user_data" class="table table-dark">
                 <thead>
-                    <tr>
-                        <th width="10%">ID</th>
-                        <th width="10%">Title</th>
-                        <th width="10%">Author</th>
-                        <th width="10%">Tags</th>
-                        <th width="10%">Image</th>
-                        <th width="10%">Action</th>
-                    </tr>
+
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Tags</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Action</th>
+
                 </thead>
             </table>
 

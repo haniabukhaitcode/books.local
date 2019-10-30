@@ -1,5 +1,5 @@
-$(document).ready(function () {
-	$('#add_button').click(function () {
+$(document).ready(function() {
+	$('#add_button').click(function() {
 		$('#user_form')[0].reset();
 		$('.modal-title').text('Add User');
 		$('#action').val('Add');
@@ -7,22 +7,15 @@ $(document).ready(function () {
 		$('#user_uploaded_image').html('');
 	});
 
-
-
-
-
-
 	var dataTable = $('#user_data').DataTable({
-
 		processing: true,
 		serverSide: false,
 		order: [],
 
 		ajax: {
-			url: "fetch.php",
-			type: "POST",
+			url: 'fetch.php',
+			type: 'POST',
 		},
-
 
 		columns: [
 			{ data: 'id' },
@@ -30,24 +23,28 @@ $(document).ready(function () {
 			{ data: 'author' },
 			{ data: 'tagName' },
 			{
-				render: function (data, type, JsonResultRow, meta) {
+				render: function(data, type, JsonResultRow, meta) {
 					return '<img src="../upload/' + JsonResultRow.book_image + '">';
-				}
+				},
 			},
 			{
-				render: function (data, type, row) {
-					let btn = '<td><button type="button" name="edit" id="' + row.id + '" class="btn btn-warning btn-xs update">Update</button></td>' +
-						'<td><button type="button" name="delete" id="' + row.id + '" class="btn btn-danger btn-xs delete">Delete</button></td>';
+				render: function(data, type, row) {
+					let btn =
+						'<td><button type="button" name="edit" id="' +
+						row.id +
+						'" class="btn btn-sm btn-primary update">Update</button></td>&nbsp;' +
+						'<td><button type="button" name="delete" id="' +
+						row.id +
+						'" class="btn btn-sm btn-danger delete">Delete</button></td>';
 					return btn;
 				},
 			},
-
 		],
 		columnDefs: [
 			{
 				orderable: true,
-			}
-		]
+			},
+		],
 	});
 
 	// $('#user_form').ajaxForm({
@@ -71,7 +68,7 @@ $(document).ready(function () {
 	// 	}
 	// });
 
-	$(document).on('submit', '#user_form', function (event) {
+	$(document).on('submit', '#user_form', function(event) {
 		event.preventDefault();
 
 		var title = $('#title').val();
@@ -97,26 +94,19 @@ $(document).ready(function () {
 				data: new FormData(this),
 				contentType: false,
 				processData: false,
-				success: function (data) {
-
+				success: function(data) {
 					$('#user_form')[0].reset();
 					$('#userModal').modal('hide');
 					console.log(data);
 					dataTable.ajax.reload();
-
 				},
 			});
 		} else {
 			alert('Both Fields are Required');
 		}
-
 	});
 
-
-
-
-
-	$(document).on('click', '.update', function () {
+	$(document).on('click', '.update', function() {
 		var user_id = $(this).attr('id');
 
 		$.ajax({
@@ -127,7 +117,7 @@ $(document).ready(function () {
 			},
 			// queryString = $('#myFormId').formSerialize(),
 			dataType: 'json',
-			success: function (data) {
+			success: function(data) {
 				$('#title').val(data.title);
 				$('#author_id').val(data.author_id);
 				$('#tags').val(data.tagID.split(','));
@@ -137,12 +127,11 @@ $(document).ready(function () {
 				$('#action').val('Edit');
 				$('#operation').val('Edit');
 				$('#userModal').modal('show');
-
 			},
 		});
 	});
 
-	$(document).on('click', '.delete', function () {
+	$(document).on('click', '.delete', function() {
 		var user_id = $(this).attr('id');
 		if (confirm('Are you sure you want to delete this?')) {
 			$.ajax({
@@ -151,9 +140,9 @@ $(document).ready(function () {
 				data: {
 					user_id: user_id,
 				},
-				success: function (data) {
+				success: function(data) {
 					alert(data);
-					dataTable.ajax.reload()
+					dataTable.ajax.reload();
 				},
 			});
 		} else {
