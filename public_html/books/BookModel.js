@@ -1,5 +1,5 @@
-$(document).ready(function() {
-	$('#add_button').click(function() {
+$(document).ready(function () {
+	$('#add_button').click(function () {
 		$('#user_form')[0].reset();
 		$('.modal-title').text('Add User');
 		$('#action').val('Add');
@@ -23,12 +23,12 @@ $(document).ready(function() {
 			{ data: 'author' },
 			{ data: 'tagName' },
 			{
-				render: function(data, type, JsonResultRow, meta) {
+				render: function (data, type, JsonResultRow, meta) {
 					return '<img src="../upload/' + JsonResultRow.book_image + '">';
 				},
 			},
 			{
-				render: function(data, type, row) {
+				render: function (data, type, row) {
 					let btn =
 						'<td><button type="button" name="edit" id="' +
 						row.id +
@@ -47,28 +47,9 @@ $(document).ready(function() {
 		],
 	});
 
-	// $('#user_form').ajaxForm({
-	// 	beforeSubmit: function (arr, $form, options) {
-	// 		if ("condition is true") {
-	// 			return true; //it will continue your submission.
-	// 		}
-	// 		else {
-	// 			return false; //ti will stop your submission.
-	// 		}
 
-	// 	},
-	// 	success: function (data) {
-	// 		endLoading();
-	// 		if (data.result == "success") {
-	// 			showSuccessNotification(data.notification);
-	// 		}
-	// 		else {
-	// 			showErrorNotification(data.notification);
-	// 		}
-	// 	}
-	// });
 
-	$(document).on('submit', '#user_form', function(event) {
+	$(document).on('submit', '#user_form', function (event) {
 		event.preventDefault();
 
 		var title = $('#title').val();
@@ -94,7 +75,7 @@ $(document).ready(function() {
 				data: new FormData(this),
 				contentType: false,
 				processData: false,
-				success: function(data) {
+				success: function (data) {
 					$('#user_form')[0].reset();
 					$('#userModal').modal('hide');
 					console.log(data);
@@ -106,7 +87,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$(document).on('click', '.update', function() {
+	$(document).on('click', '.update', function () {
 		var user_id = $(this).attr('id');
 
 		$.ajax({
@@ -117,7 +98,7 @@ $(document).ready(function() {
 			},
 			// queryString = $('#myFormId').formSerialize(),
 			dataType: 'json',
-			success: function(data) {
+			success: function (data) {
 				$('#title').val(data.title);
 				$('#author_id').val(data.author_id);
 				$('#tags').val(data.tagID.split(','));
@@ -131,7 +112,7 @@ $(document).ready(function() {
 		});
 	});
 
-	$(document).on('click', '.delete', function() {
+	$(document).on('click', '.delete', function () {
 		var user_id = $(this).attr('id');
 		if (confirm('Are you sure you want to delete this?')) {
 			$.ajax({
@@ -140,7 +121,7 @@ $(document).ready(function() {
 				data: {
 					user_id: user_id,
 				},
-				success: function(data) {
+				success: function (data) {
 					alert(data);
 					dataTable.ajax.reload();
 				},
