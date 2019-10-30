@@ -55,7 +55,7 @@ class BaseModel
         $stmt->bindParam(1, $id);
         $stmt->execute();
 
-        return $stmt->fetch(PDO::FETCH_OBJ);
+        return $stmt;
     }
 
     public function fetchAll($row = null)
@@ -91,6 +91,19 @@ class BaseModel
         $stmt =  $sql->execute();
 
         return  $stmt;
+    }
+    function get_total_all_records($data)
+    {
+
+        $stmt = $this->conn->prepare($data);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
+    public function pdoStmt($query)
+    {
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
     }
 
     public function delete(array $where)
