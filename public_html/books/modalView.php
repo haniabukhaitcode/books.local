@@ -27,7 +27,7 @@ $tag = new Tag();
                     <select type="text" class="form-control" name="author_id" id="author_id">
                         <?php
                         foreach ($author->fetchAll() as $row) : ?>
-                            <option value="<?= $row->id; ?>"><?= $row->author; ?></a></option>
+                            <option value="<?= $row->id; ?>"><?= $row->author; ?> </option>
                         <?php endforeach; ?>
                     </select>
                     <br />

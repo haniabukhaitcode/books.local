@@ -23,26 +23,23 @@ require "../public/navbar.html";
             <div style="height:15px;"></div>
             <table id="user_data" class="table table-dark">
                 <thead>
-
                     <th scope="col">ID</th>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
                     <th scope="col">Tags</th>
                     <th scope="col">Image</th>
                     <th scope="col">Action</th>
-
                 </thead>
             </table>
-
         </div>
     </div>
 
 
     <?php require "./modalView.php" ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 

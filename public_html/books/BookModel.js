@@ -13,18 +13,28 @@ $(document).ready(function () {
 		order: [],
 
 		ajax: {
-			url: 'fetch.php',
+			url: 'read.php',
 			type: 'POST',
 		},
 
 		columns: [
 			{ data: 'id' },
 			{ data: 'title' },
-			{ data: 'author' },
-			{ data: 'tagName' },
+
+			{
+				render: function (data, type, row, meta) {
+					return '<td><a href="/authorsBooks/index.php?id=' + row.author_id + ' "> ' + row.author + ' </a></td>'
+				}
+			},
+
+			{
+				render: function (data, type, row, meta) {
+					return '<td><a href="/tagsBooks/index.php?id[]=' + row.tagID + ' "> ' + row.tagName + ' </a></td>'
+				}
+			},
 			{
 				render: function (data, type, JsonResultRow, meta) {
-					return '<img src="../upload/' + JsonResultRow.book_image + '">';
+					return '<img style="width:100px; height:100px;" src="../public/images/' + JsonResultRow.book_image + '">';
 				},
 			},
 			{
@@ -47,8 +57,6 @@ $(document).ready(function () {
 		],
 	});
 
-
-
 	$(document).on('submit', '#user_form', function (event) {
 		event.preventDefault();
 
@@ -70,7 +78,7 @@ $(document).ready(function () {
 
 		if (title != '' && author_id != '' && tags != '') {
 			$.ajax({
-				url: 'insert.php',
+				url: 'create.php',
 				method: 'POST',
 				data: new FormData(this),
 				contentType: false,
@@ -91,12 +99,11 @@ $(document).ready(function () {
 		var user_id = $(this).attr('id');
 
 		$.ajax({
-			url: 'fetch_single.php',
+			url: 'update.php',
 			method: 'POST',
 			data: {
 				user_id: user_id,
 			},
-			// queryString = $('#myFormId').formSerialize(),
 			dataType: 'json',
 			success: function (data) {
 				$('#title').val(data.title);
@@ -122,7 +129,7 @@ $(document).ready(function () {
 					user_id: user_id,
 				},
 				success: function (data) {
-					alert(data);
+
 					dataTable.ajax.reload();
 				},
 			});

@@ -75,7 +75,7 @@ class Book extends BaseModel
 
         if ($image) {
             // sha1_file() function is used to make a unique file name
-            $target_directory = $_SERVER['DOCUMENT_ROOT'] . "/working_CrudCopy/upload/";
+            $target_directory = $_SERVER['DOCUMENT_ROOT'] . "/public/images/";
             $target_file = $target_directory . $path . $image["name"];
             $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 

@@ -1,6 +1,5 @@
 <?php
 require "BaseModel.php";
-require "BookTag.php";
 class AuthorBook extends BaseModel
 {
     protected $fields = [
