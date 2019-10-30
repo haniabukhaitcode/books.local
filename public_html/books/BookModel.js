@@ -14,8 +14,32 @@ $(document).ready(function () {
 		$("#user_form").validate({
 			rules: {
 				title: "required",
-				author: "required",
 				tags: tagsValidation()
+			}
+		});
+	}
+	
+	function tagsValidation() {
+		$.validator.addMethod("needsSelection", function (value, element) {
+			var count = $(element).find('option:selected').length;
+
+			if (count <= 0) {
+				$('#user_form').validate({
+
+					rules: {
+
+						tags: { needsSelection: true },
+
+						agree: "required"
+					},
+
+					messages: {
+
+						tags: { needsSelection: "Select atleast one" },
+
+						agree: ""
+					},
+				});
 			}
 		});
 	}
