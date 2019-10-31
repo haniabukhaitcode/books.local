@@ -30,6 +30,17 @@ require "../public/navbar.html";
         font-size: 18px;
     }
 
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0;
+        border: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        color: transparent;
+        background: none;
+        border: none;
+
+    }
 
     th#removeSort.sorting {
         background-image: none;
