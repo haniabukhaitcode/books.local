@@ -13,10 +13,11 @@ require "../public/navbar.html";
 
 ?>
 <style>
-    label#title-error.error {
+    label.error {
         color: red;
         font-size: 18px;
     }
+
 
     table.dataTable,
     table.dataTable th,
@@ -25,10 +26,7 @@ require "../public/navbar.html";
         font-size: 18px;
     }
 
-    label#tags-error.error {
-        color: red;
-        font-size: 18px;
-    }
+
 
     .dataTables_wrapper .dataTables_paginate .paginate_button {
         padding: 0;
@@ -46,13 +44,6 @@ require "../public/navbar.html";
         background-image: none;
         pointer-events: none;
 
-    }
-
-
-
-    label#book_image-error.error {
-        color: red;
-        font-size: 18px;
     }
 </style>
 
