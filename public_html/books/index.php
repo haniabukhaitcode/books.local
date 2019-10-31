@@ -3,9 +3,10 @@
 
 <head>
     <title>Create Books</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
 </head>
 <?php
 require "../public/navbar.html";
@@ -13,6 +14,32 @@ require "../public/navbar.html";
 ?>
 <style>
     label#title-error.error {
+        color: red;
+        font-size: 18px;
+    }
+
+    table.dataTable,
+    table.dataTable th,
+    table.dataTable td {
+        background: #212529;
+        font-size: 18px;
+    }
+
+    label#tags-error.error {
+        color: red;
+        font-size: 18px;
+    }
+
+
+    th#removeSort.sorting {
+        background-image: none;
+        pointer-events: none;
+
+    }
+
+
+
+    label#book_image-error.error {
         color: red;
         font-size: 18px;
     }
@@ -27,14 +54,14 @@ require "../public/navbar.html";
                 <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" style="cursor:pointer; color:white;" class="btn btn-success col-3 mb-4">Add</button>
             </span>
             <div style="height:15px;"></div>
-            <table id="user_data" class="table table-dark">
+            <table id="user_data" class="table table-dark" style="background: #212529;">
                 <thead>
                     <th scope="col">ID</th>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
                     <th scope="col">Tags</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Action</th>
+                    <th id="removeSort" scope="col">Image</th>
+                    <th id="removeSort" scope="col">Action</th>
                 </thead>
             </table>
         </div>
@@ -49,17 +76,11 @@ require "../public/navbar.html";
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
-
-
     <script src="http://malsup.github.com/jquery.form.js"></script>
-
 
     <script src="BookModel.js"></script>
     </div>

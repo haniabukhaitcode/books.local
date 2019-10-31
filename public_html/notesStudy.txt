@@ -1,0 +1,1 @@
+https://www.tutsntechs.com/tutorials/details/jquery-datatable-with-codeigniter-using-server-side-processing
