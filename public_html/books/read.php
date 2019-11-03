@@ -1,7 +1,7 @@
 <?php
 require '../models/Book.php';
 $book = new Book;
-
+$sql = 'SELECT * FROM fetchTagBooks ';
 
 $query = '';
 $output = array();
@@ -20,6 +20,7 @@ if ($_POST["length"] != -1) {
 }
 
 $stmt = $book->pdoStmt($query);
+// print_r($stmt);
 
 $data = array();
 
@@ -49,7 +50,7 @@ foreach ($stmt->fetchAll(PDO::FETCH_OBJ) as $row) {
 $output = array(
 	"draw" => intval($_POST["draw"]),
 	"recordsTotal" => $filtered_rows,
-	"recordsFiltered" => $book->get_total_all_records($query),
+	"recordsFiltered" => $book->get_total_all_records($sql),
 	"data" => $data
 );
 
