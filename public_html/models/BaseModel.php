@@ -94,11 +94,11 @@ class BaseModel
     }
     function get_total_all_records($data)
     {
-
         $stmt = $this->conn->prepare($data);
         $stmt->execute();
         return $stmt->rowCount();
     }
+
     public function pdoStmt($query)
     {
         $stmt = $this->conn->prepare($query);

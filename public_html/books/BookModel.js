@@ -38,7 +38,7 @@ $(document).ready(function () {
 
 	var dataTable = $('#user_data').DataTable({
 		processing: true,
-		serverSide: false,
+		serverSide: true,
 		order: [],
 
 		ajax: {
@@ -46,41 +46,41 @@ $(document).ready(function () {
 			type: 'POST',
 		},
 
-		columns: [
-			{ data: 'id' },
-			{ data: 'title' },
+		// columns: [
+		// 	{ data: 'id' },
+		// 	{ data: 'title' },
 
-			{
-				render: function (data, type, row, meta) {
-					return '<td><a href="/authorsBooks/index.php?id=' + row.author_id + ' "> ' + row.author + ' </a></td>';
-				},
-			},
+		// 	{
+		// 		render: function (data, type, row, meta) {
+		// 			return '<td><a href="/authorsBooks/index.php?id=' + row.author_id + ' "> ' + row.author + ' </a></td>';
+		// 		},
+		// 	},
 
-			{
-				render: function (data, type, row, meta) {
-					return '<td><a href="/tagsBooks/index.php?id[]=' + row.tagID + ' "> ' + row.tagName + ' </a></td>';
-				},
-			},
+		// 	{
+		// 		render: function (data, type, row, meta) {
+		// 			return '<td><a href="/tagsBooks/index.php?id[]=' + row.tagID + ' "> ' + row.tagName + ' </a></td>';
+		// 		},
+		// 	},
 
-			{
-				render: function (data, type, row, meta) {
-					return '<img style="width:100px; height:100px;" src="../public/images/' + row.book_image + '">';
-				},
-			},
+		// 	{
+		// 		render: function (data, type, row, meta) {
+		// 			return '<img style="width:100px; height:100px;" src="../public/images/' + row.book_image + '">';
+		// 		},
+		// 	},
 
-			{
-				render: function (data, type, row) {
-					let btn =
-						'<td><button type="button" name="edit" id="' +
-						row.id +
-						'" class="btn btn-sm btn-primary update">Update</button></td>&nbsp;' +
-						'<td><button type="button" name="delete" id="' +
-						row.id +
-						'" class="btn btn-sm btn-danger delete">Delete</button></td>';
-					return btn;
-				},
-			},
-		],
+		// 	{
+		// 		render: function (data, type, row) {
+		// 			let btn =
+		// 				'<td><button type="button" name="edit" id="' +
+		// 				row.id +
+		// 				'" class="btn btn-sm btn-primary update">Update</button></td>&nbsp;' +
+		// 				'<td><button type="button" name="delete" id="' +
+		// 				row.id +
+		// 				'" class="btn btn-sm btn-danger delete">Delete</button></td>';
+		// 			return btn;
+		// 		},
+		// 	},
+		// ],
 		columnDefs: [
 			{
 				orderable: true,
