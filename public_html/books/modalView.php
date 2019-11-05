@@ -45,7 +45,8 @@ $tag = new Tag();
 
                     <label class="control-label" style="position:relative; color:white;  margin-right:10px;">Image:</label>
                     <input type="file" name="book_image" id="book_image" />
-                    <span id="user_uploaded_image"></span>
+                    <img id="user_uploaded_image" src="" style="width:100px; height:100px;" class="card-img-top" />
+                    <!-- <span id="user_uploaded_image"></span> -->
 
                 </div>
 

@@ -9,11 +9,11 @@ $primaryKey = 'id';
 
 // Table's primary key
 $columns = array(
-	array('db' => 'id', 'dt' => 'id'),
-	array('db' => 'title',  'dt' => 'title'),
-	array('db' => 'author',   'dt' => 'author'),
-	array('db' => 'tagName',     'dt' => 'tagName'),
-	array('db' => 'book_image',     'dt' => 'book_image'),
+	array('db' => 'id', 		'dt' => 'id'),
+	array('db' => 'title',  	'dt' => 'title'),
+	array('db' => 'author',   	'dt' => 'author'),
+	array('db' => 'tagName',    'dt' => 'tagName'),
+	array('db' => 'book_image', 'dt' => 'book_image'),
 
 );
 

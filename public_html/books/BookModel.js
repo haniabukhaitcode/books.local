@@ -1,20 +1,16 @@
-$(document).ready(function () {
+$(document).ready(function() {
 	var options = {
-
 		clearForm: true,
 		resetForm: true,
 		cache: false,
 		ajax: 'read.php',
 		beforeSubmit: validate(),
 
-		success: function (msg) {
-
+		success: function(msg) {
 			$('#userModal').modal('hide');
 
 			dataTable.ajax.reload();
-
 		},
-
 	};
 
 	function validate() {
@@ -33,17 +29,16 @@ $(document).ready(function () {
 
 	$('#user_form').ajaxForm(options);
 
-	$('#add_button').click(function () {
+	$('#add_button').click(function() {
 		$('#user_form')[0].reset();
 
 		$('.modal-title').text('Add User');
-		$(".select2-single").select2({
-			width: null
+		$('.select2-single').select2({
+			width: null,
 		});
 
-		$("#e2").select2({
-
-			allowClear: true
+		$('#e2').select2({
+			allowClear: true,
 		});
 		$('#action').val('Add');
 		$('#operation').val('Add');
@@ -57,7 +52,7 @@ $(document).ready(function () {
 		order: [],
 		ajax: {
 			url: 'read.php',
-			type: 'POST'
+			type: 'POST',
 		},
 
 		columns: [
@@ -65,25 +60,28 @@ $(document).ready(function () {
 			{ data: 'title' },
 
 			{
-				render: function (data, type, row, meta) {
+				render: function(data, type, row, meta) {
 					return '<td><a href="/authorsBooks/index.php?id=' + row.author_id + ' "> ' + row.author + ' </a></td>';
 				},
+				data: 'author',
 			},
 
 			{
-				render: function (data, type, row, meta) {
+				render: function(data, type, row, meta) {
 					return '<td><a href="/tagsBooks/index.php?id[]=' + row.tagID + ' "> ' + row.tagName + ' </a></td>';
 				},
+				data: 'tagName',
 			},
 
 			{
-				render: function (data, type, row, meta) {
+				render: function(data, type, row, meta) {
 					return '<img style="width:100px; height:100px;" src="../public/images/' + row.book_image + '">';
 				},
+				data: 'book_image',
 			},
 
 			{
-				render: function (data, type, row) {
+				render: function(data, type, row) {
 					let btn =
 						'<td><button type="button" name="edit" id="' +
 						row.id +
@@ -102,9 +100,11 @@ $(document).ready(function () {
 		],
 	});
 
-	$(document).on('click', '.update', function () {
+	$(document).on('click', '.update', function() {
 		var user_id = $(this).attr('id');
-		var validator = $("#userModal").validate();
+		var validator = $('#userModal').validate();
+
+		// $('#image').attr('src', 'data:image/png;base64,' + data.img);
 		validator.resetForm();
 		$.ajax({
 			url: 'update.php',
@@ -113,24 +113,25 @@ $(document).ready(function () {
 				user_id: user_id,
 			},
 			dataType: 'json',
-			success: function (data) {
+			success: function(data) {
 				$('#title').val(data.title);
 				$('#author_id').val(data.author_id);
-				$(".select2-single").select2();
+				$('.select2-single').select2();
 				$('#tags').val(data.tagID.split(','));
-				$(".select2-multiple").select2();
+				$('.select2-multiple').select2();
 				$('.modal-title').text('Edit User');
 				$('#user_id').val(user_id);
-				$('#user_uploaded_image').html(data.book_image);
+				$('#user_uploaded_image').attr('src', '../public/images/' + data.book_image);
+				//src="../public/images/download (7).jpeg"
+
 				$('#action').val('Edit');
 				$('#operation').val('Edit');
 				$('#userModal').modal('show');
-
 			},
 		});
 	});
 
-	$(document).on('click', '.delete', function () {
+	$(document).on('click', '.delete', function() {
 		var user_id = $(this).attr('id');
 		if (confirm('Are you sure you want to delete this?')) {
 			$.ajax({
@@ -139,7 +140,7 @@ $(document).ready(function () {
 				data: {
 					user_id: user_id,
 				},
-				success: function (data) {
+				success: function(data) {
 					dataTable.ajax.reload();
 				},
 			});
