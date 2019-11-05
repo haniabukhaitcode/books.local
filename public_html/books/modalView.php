@@ -2,6 +2,7 @@
     <center><span id="alerttext"></span></center>
 </div>
 
+
 <?php
 require '../models/Author.php';
 require '../models/Tag.php';
@@ -24,7 +25,7 @@ $tag = new Tag();
                     <br />
                     <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Author:</label>
 
-                    <select type="text" class="form-control" name="author_id" id="author_id">
+                    <select type="text" style="width:100%;" class="form-control select2-single" name="author_id" id="author_id">
                         <?php
                         foreach ($author->fetchAll() as $row) : ?>
                             <option value="<?= $row->id; ?>"><?= $row->author; ?> </option>
@@ -32,7 +33,8 @@ $tag = new Tag();
                     </select>
                     <br />
                     <label class="control-label" style="position:relative; color:white; top:7px; margin-right:10px;">Tags:</label>
-                    <select type="text" name="tags[]" id="tags" class="form-control tags" multiple="multiple">
+                    <select type="text" name="tags[]" style="width:100%;" id="tags" class="form-control tags select2-multiple" multiple="multiple">
+
                         <?php
                         foreach ($tag->fetchAll() as $row) : ?>
                             <option value=<?= $row->id ?>><?= $row->tag ?></option>
@@ -40,10 +42,13 @@ $tag = new Tag();
                         endforeach; ?>
                     </select>
                     <br />
+
                     <label class="control-label" style="position:relative; color:white;  margin-right:10px;">Image:</label>
                     <input type="file" name="book_image" id="book_image" />
                     <span id="user_uploaded_image"></span>
+
                 </div>
+
                 <div class="modal-footer">
                     <input type="hidden" name="user_id" id="user_id" />
                     <input type="hidden" name="operation" id="operation" />

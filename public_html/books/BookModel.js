@@ -1,15 +1,20 @@
 $(document).ready(function () {
 	var options = {
-		clearForm: 'true',
-		resetForm: 'true',
-		cache: 'false',
 
-		ajax: 'create.php',
+		clearForm: true,
+		resetForm: true,
+		cache: false,
+		ajax: 'read.php',
 		beforeSubmit: validate(),
+
 		success: function (msg) {
+
 			$('#userModal').modal('hide');
+
 			dataTable.ajax.reload();
+
 		},
+
 	};
 
 	function validate() {
@@ -30,7 +35,16 @@ $(document).ready(function () {
 
 	$('#add_button').click(function () {
 		$('#user_form')[0].reset();
+
 		$('.modal-title').text('Add User');
+		$(".select2-single").select2({
+			width: null
+		});
+
+		$("#e2").select2({
+
+			allowClear: true
+		});
 		$('#action').val('Add');
 		$('#operation').val('Add');
 		$('#user_uploaded_image').html('');
@@ -39,11 +53,11 @@ $(document).ready(function () {
 	var dataTable = $('#user_data').DataTable({
 		processing: true,
 		serverSide: true,
-		order: [],
 
+		order: [],
 		ajax: {
 			url: 'read.php',
-			type: 'POST',
+			type: 'POST'
 		},
 
 		columns: [
@@ -90,7 +104,8 @@ $(document).ready(function () {
 
 	$(document).on('click', '.update', function () {
 		var user_id = $(this).attr('id');
-
+		var validator = $("#userModal").validate();
+		validator.resetForm();
 		$.ajax({
 			url: 'update.php',
 			method: 'POST',
@@ -101,13 +116,16 @@ $(document).ready(function () {
 			success: function (data) {
 				$('#title').val(data.title);
 				$('#author_id').val(data.author_id);
+				$(".select2-single").select2();
 				$('#tags').val(data.tagID.split(','));
+				$(".select2-multiple").select2();
 				$('.modal-title').text('Edit User');
 				$('#user_id').val(user_id);
 				$('#user_uploaded_image').html(data.book_image);
 				$('#action').val('Edit');
 				$('#operation').val('Edit');
 				$('#userModal').modal('show');
+
 			},
 		});
 	});
